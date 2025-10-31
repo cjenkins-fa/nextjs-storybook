@@ -343,11 +343,11 @@ $font-button-text: 16px;
   
   // Modifier: small size
   &--small {
-    padding: var(--space-200) var(--space-400);
-    font-size: $font-label-small;
+    padding: var(--space-200) var(--space-400) !important;
+    font-size: $font-label-small !important;
     
     &.btn--text-link {
-      padding: 0; // Text links don't have padding even when small
+      padding: 0 !important; // Text links don't have padding even when small
     }
   }
 }

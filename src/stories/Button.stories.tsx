@@ -77,8 +77,12 @@ Use the controls below to explore different button variants, or check out the in
     theme: {
       control: { type: 'select' },
       options: ['primary', 'secondary'],
+      if: { arg: 'variant', eq: 'text-link' }, // Only show for text-link variant
     },
-    showArrow: { control: 'boolean' },
+    showArrow: { 
+      control: 'boolean',
+      if: { arg: 'variant', eq: 'text-link' }, // Only show for text-link variant
+    },
     backgroundColor: { control: 'color' },
   },
   // Use `fn` to spy on the onClick arg, which will appear in the actions panel once invoked: https://storybook.js.org/docs/essentials/actions#action-args

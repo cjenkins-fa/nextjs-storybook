@@ -41,13 +41,12 @@ export const Button = ({
     const classes = [baseClass];
     
     // Add variant modifiers
-    if (variant) {
+    if (variant === 'text-link') {
+      // Text links use both classes: btn--text-link btn--text-link--primary
       classes.push(`${baseClass}--${variant}`);
-    }
-    
-    // Add theme modifiers for variants that support themes
-    if ((variant === 'primary' || variant === 'secondary' || variant === 'text-link') && theme) {
-      classes.push(`${baseClass}--${theme}`);
+      classes.push(`${baseClass}--${variant}--${theme}`);
+    } else if (variant) {
+      classes.push(`${baseClass}--${variant}`);
     }
     
     // Add size modifiers
@@ -72,7 +71,7 @@ export const Button = ({
           style={{ backgroundColor }}
           {...props}
         >
-          <i className="btn__icon btn__icon--chevron-up"></i>
+          <i className="bg-icon bg-icon--chevron-up"></i>
           <span className="btn__text">{label}</span>
         </button>
       );
@@ -89,7 +88,7 @@ export const Button = ({
           {...props}
         >
           <span className="btn__text">{label}</span>
-          {showArrow && <i className="btn__icon btn__icon--arrow-right"></i>}
+          {showArrow && <i className="bg-icon bg-icon--arrow-right"></i>}
         </button>
       );
     }

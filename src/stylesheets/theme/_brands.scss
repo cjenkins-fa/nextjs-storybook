@@ -1,0 +1,10 @@
+// Combines all brand maps into one export
+@use "./brand.core"   as core;
+@use "./brand.acme"   as acme;
+@use "./brand.globex" as globex;
+
+$brands: (
+  core: core.$brand,
+  acme: acme.$brand,
+  globex: globex.$brand
+) !default;

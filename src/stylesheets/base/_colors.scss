@@ -1,0 +1,156 @@
+@mixin defineColorRGB($color, $red, $green, $blue) {
+  #{$color}: unquote('rgb(#{$red}, #{$green}, #{$blue})');
+  #{$color}-r: #{$red};
+  #{$color}-g: #{$green};
+  #{$color}-b: #{$blue};
+}
+
+/* Brand Colors ------------------------------ */
+$foundation: #141d3a;
+$legacy: #013a6f;
+$welcome: #0075c3;
+$vivid: #4eade1;
+$sky: #dceff9;
+$sky-light: #f2f9fd;
+$gold: #ebbd5f;
+$charcoal: #2f2f2f;
+$feather: #f4f4f4;
+$lil-red: #e62e1f;
+
+/* Additional system colors ------------------ */
+$stock-green: #34a853;
+$stock-red: #d13623;
+
+/* Form field colors ------------------------- */
+$field-outline: #ccc;
+$field-text-label: #737373;
+$field-text-value: #333;
+$field-outline-disabled: #d9d9d9;
+$field-text-disabled: #b3b3b3;
+$field-fill-disabled: #f3f3f3;
+
+/* ============= Legacy color. Needs review from Britt ================= */
+/* This color is being used on tiles.scss and cards.scss */
+$tile-blue: #34618c;
+/* ============= Legacy color used. Needs review from Britt ================= */
+
+:root {
+  /* Blue ---------------------- */
+  @include defineColorRGB(--blue, 1, 58, 111);
+  @include defineColorRGB(--blue--tint-100, 27, 78, 126);
+  @include defineColorRGB(--blue--tint-200, 52, 97, 140);
+  @include defineColorRGB(--blue--tint-300, 78, 117, 154);
+  @include defineColorRGB(--blue--tint-400, 103, 137, 169);
+  @include defineColorRGB(--blue--tint-500, 128, 157, 183);
+  @include defineColorRGB(--blue--tint-600, 153, 176, 197);
+  @include defineColorRGB(--blue--tint-700, 179, 196, 212);
+  @include defineColorRGB(--blue--tint-800, 204, 216, 226);
+  @include defineColorRGB(--blue--tint-900, 230, 236, 241);
+  @include defineColorRGB(--blue--shade-100, 1, 52, 100);
+  @include defineColorRGB(--blue--shade-200, 1, 46, 89);
+  @include defineColorRGB(--blue--shade-300, 1, 40, 77);
+  @include defineColorRGB(--blue--shade-400, 1, 35, 67);
+  @include defineColorRGB(--blue--shade-500, 0, 29, 55);
+  @include defineColorRGB(--blue--shade-600, 0, 23, 44);
+  @include defineColorRGB(--blue--shade-700, 0, 17, 33);
+  @include defineColorRGB(--blue--shade-800, 0, 12, 22);
+  @include defineColorRGB(--blue--shade-900, 0, 6, 11);
+
+  /* Yellow ---------------------- */
+  @include defineColorRGB(--yellow, 255, 204, 51);
+  @include defineColorRGB(--yellow--tint-100, 255, 209, 72);
+  @include defineColorRGB(--yellow--tint-200, 255, 214, 92);
+  @include defineColorRGB(--yellow--tint-300, 255, 219, 113);
+  @include defineColorRGB(--yellow--tint-400, 255, 224, 133);
+  @include defineColorRGB(--yellow--tint-500, 255, 230, 153);
+  @include defineColorRGB(--yellow--tint-600, 255, 235, 173);
+  @include defineColorRGB(--yellow--tint-700, 255, 240, 194);
+  @include defineColorRGB(--yellow--tint-800, 255, 245, 214);
+  @include defineColorRGB(--yellow--tint-900, 255, 250, 235);
+  @include defineColorRGB(--yellow--shade-100, 229, 183, 46);
+  @include defineColorRGB(--yellow--shade-200, 204, 163, 41);
+  @include defineColorRGB(--yellow--shade-300, 178, 142, 36);
+  @include defineColorRGB(--yellow--shade-400, 153, 122, 31);
+  @include defineColorRGB(--yellow--shade-500, 127, 102, 25);
+  @include defineColorRGB(--yellow--shade-600, 102, 82, 20);
+  @include defineColorRGB(--yellow--shade-700, 76, 61, 15);
+  @include defineColorRGB(--yellow--shade-800, 51, 41, 10);
+  @include defineColorRGB(--yellow--shade-900, 25, 20, 5);
+
+  /* Red ---------------------- */
+  @include defineColorRGB(--red, 230, 46, 31);
+  @include defineColorRGB(--red--tint-100, 233, 67, 54);
+  @include defineColorRGB(--red--tint-200, 235, 88, 76);
+  @include defineColorRGB(--red--tint-300, 238, 109, 99);
+  @include defineColorRGB(--red--tint-400, 240, 130, 121);
+  @include defineColorRGB(--red--tint-500, 243, 151, 143);
+  @include defineColorRGB(--red--tint-600, 245, 171, 165);
+  @include defineColorRGB(--red--tint-700, 248, 193, 188);
+  @include defineColorRGB(--red--tint-800, 250, 213, 210);
+  @include defineColorRGB(--red--tint-900, 253, 235, 233);
+  @include defineColorRGB(--red--shade-100, 207, 41, 28);
+  @include defineColorRGB(--red--shade-200, 184, 37, 25);
+  @include defineColorRGB(--red--shade-300, 161, 32, 22);
+  @include defineColorRGB(--red--shade-400, 138, 28, 19);
+  @include defineColorRGB(--red--shade-500, 115, 23, 15);
+  @include defineColorRGB(--red--shade-600, 92, 18, 12);
+  @include defineColorRGB(--red--shade-700, 69, 14, 9);
+  @include defineColorRGB(--red--shade-800, 46, 9, 6);
+  @include defineColorRGB(--red--shade-900, 23, 5, 3);
+
+  /* Green ---------------------- */
+  @include defineColorRGB(--green, 0, 166, 81);
+
+  /* Orange ---------------------- */
+  @include defineColorRGB(--orange, 242, 101, 34);
+
+  /* Purple ---------------------- */
+  @include defineColorRGB(--purple, 105, 31, 110);
+
+  /* Grey -------------------------------- */
+  @include defineColorRGB(--grey, 128, 128, 128);
+  @include defineColorRGB(--grey--tint-100, 141, 141, 141);
+  @include defineColorRGB(--grey--tint-200, 153, 153, 153);
+  @include defineColorRGB(--grey--tint-300, 166, 166, 166);
+  @include defineColorRGB(--grey--tint-400, 179, 179, 179);
+  @include defineColorRGB(--grey--tint-500, 192, 192, 192);
+  @include defineColorRGB(--grey--tint-600, 204, 204, 204);
+  @include defineColorRGB(--grey--tint-700, 217, 217, 217);
+  @include defineColorRGB(--grey--tint-800, 230, 230, 230);
+  @include defineColorRGB(--grey--tint-900, 243, 243, 243);
+  @include defineColorRGB(--grey--shade-100, 115, 115, 115);
+  @include defineColorRGB(--grey--shade-200, 102, 102, 102);
+  @include defineColorRGB(--grey--shade-300, 89, 89, 89);
+  @include defineColorRGB(--grey--shade-400, 77, 77, 77);
+  @include defineColorRGB(--grey--shade-500, 64, 64, 64);
+  @include defineColorRGB(--grey--shade-600, 51, 51, 51);
+  @include defineColorRGB(--grey--shade-700, 38, 38, 38);
+  @include defineColorRGB(--grey--shade-800, 26, 26, 26);
+  @include defineColorRGB(--grey--shade-900, 13, 13, 13);
+
+  /* Black -------------------------------- */
+  @include defineColorRGB(--black, 0, 0, 0);
+
+  /* White -------------------------------- */
+  @include defineColorRGB(--white, 255, 255, 255);
+
+  /* Neutrals -------------------------------- */
+  @include defineColorRGB(--neutral--tint-100, 26, 41, 56);
+  @include defineColorRGB(--neutral--tint-200, 51, 65, 77);
+  @include defineColorRGB(--neutral--tint-300, 77, 89, 100);
+  @include defineColorRGB(--neutral--tint-400, 102, 112, 122);
+  @include defineColorRGB(--neutral--tint-500, 128, 136, 144);
+  @include defineColorRGB(--neutral--tint-600, 153, 160, 166);
+  @include defineColorRGB(--neutral--tint-700, 179, 184, 189);
+  @include defineColorRGB(--neutral--tint-800, 204, 207, 211);
+  @include defineColorRGB(--neutral--tint-900, 230, 232, 233);
+  @include defineColorRGB(--neutral--shade-100, 0, 15, 30);
+  @include defineColorRGB(--neutral--shade-200, 0, 14, 26);
+  @include defineColorRGB(--neutral--shade-300, 0, 12, 23);
+  @include defineColorRGB(--neutral--shade-400, 0, 10, 20);
+  @include defineColorRGB(--neutral--shade-500, 0, 8, 16);
+  @include defineColorRGB(--neutral--shade-600, 0, 7, 13);
+  @include defineColorRGB(--neutral--shade-700, 0, 5, 10);
+  @include defineColorRGB(--neutral--shade-800, 0, 3, 7);
+  @include defineColorRGB(--neutral--shade-900, 0, 2, 3);
+}

@@ -1,0 +1,26 @@
+@use '../layout/bootstrap-grid-3.0.0' as gridMixins;
+
+// Band ------------------------------
+.band {
+  display: flex;
+  padding-top: 24px;
+  padding-bottom: 24px;
+  &--dark {
+    background-color: var(--color-band-bg-dark);
+    color: var(--color-band-text-contrast);
+  }
+}
+
+@include gridMixins.media-breakpoint-up(md) {
+  .band {
+    padding-top: 32px;
+    padding-bottom: 32px;
+  }
+}
+
+@include gridMixins.media-breakpoint-up(lg) {
+  .band {
+    padding-top: 48px;
+    padding-bottom: 48px;
+  }
+}

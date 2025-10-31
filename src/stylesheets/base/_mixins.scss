@@ -1,0 +1,273 @@
+@use './variables';
+@use '../base/colors' as *;
+@use '../base/svg-icons' as icons;
+
+// Breakpoints ===============================
+@mixin respond-to($breakpoint) {
+  @if $breakpoint == xlarge {
+    @media (min-width: #{variables.$breakpoint-xlg}) {
+      @content;
+    }
+  }
+
+  @if $breakpoint == large {
+    @media (min-width: #{variables.$breakpoint-lg}) {
+      @content;
+    }
+  }
+  @if $breakpoint == med {
+    @media (min-width: #{variables.$breakpoint-md}) {
+      @content;
+    }
+  }
+  @if $breakpoint == small {
+    @media (min-width: #{variables.$breakpoint-sm}) {
+      @content;
+    }
+  }
+  @if $breakpoint == xsmall {
+    @media (min-width: #{variables.$breakpoint-xs}) {
+      @content;
+    }
+  }
+}
+
+// // Colors ====================================
+// @function addAlpha($color, $alpha) {
+//   $color: str-replace($color, 'var(');
+//   $color: str-replace($color, ')');
+//   $color-r: var(#{$color + '-r'});
+//   $color-g: var(#{$color + '-g'});
+//   $color-b: var(#{$color + '-b'});
+//   @return rgba($color-r, $color-g, $color-b, $alpha);
+// }
+
+// // replace substring with another string
+// // credits: https://css-tricks.com/snippets/sass/str-replace-function/
+// @function str-replace($string, $search, $replace: '') {
+//   $index: str-index($string, $search);
+//   @if $index {
+//     @return str-slice($string, 1, $index - 1) + $replace +
+//       str-replace(
+//         str-slice($string, $index + str-length($search)),
+//         $search,
+//         $replace
+//       );
+//   }
+//   @return $string;
+// }
+
+// Header ====================================
+@mixin header__theme(
+  $badge: 'https://www.firstam.com/assets/logos/hr/logo-fa.png',
+  $header-bg: #fff,
+  $mobile-drawer-bg-color: #fff,
+  $mobile-drawer-button-color: $foundation,
+  // Mobile navigation text colors
+  $mobile-nav-item-text-color: $foundation,
+  $mobile-nav-item-open-text-color: $legacy,
+  $mobile-submenu-item-text-color: $mobile-nav-item-text-color,
+  $mobile-submenu-item-hover-text-color: $welcome,
+  // Desktop navigation text colors
+  $header-nav-item-text-color: $foundation,
+  $header-nav-item-hover-text-color: $legacy,
+  $header-submenu-item-text-color: $header-nav-item-text-color,
+  $header-submenu-item-hover-text-color: $welcome,
+  // Chevron colors
+  $chevron-color: $foundation,
+  $chevron-hover-color: $legacy
+) {
+  .header {
+    // Header background colors ================================
+    background-color: $header-bg;
+
+    &:has(.header-nav-item:hover) {
+      background-color: rgba($header-bg, 1);
+    }
+
+    .header__logo {
+      background-image: url($badge);
+    }
+
+    .header__nav-button {
+      &__top,
+      &__middle,
+      &__bottom {
+        stroke: $mobile-drawer-button-color;
+      }
+    }
+
+    // Desktop navigation styles ================================
+    .header-nav-item {
+      .header-nav-item__link {
+        color: $header-nav-item-text-color;
+
+        sup {
+          color: $header-nav-item-text-color;
+        }
+
+        &:has(+ .dropdown-wrapper)::after {
+          content: icons.get-icon(chevron-down, $chevron-color);
+          width: 20px;
+          height: 20px;
+          margin-left: 10px;
+        }
+      }
+
+      .header-submenu-item__link {
+        color: $header-submenu-item-text-color;
+
+        sup {
+          color: $header-submenu-item-text-color;
+        }
+      }
+
+      &:hover {
+        .header-nav-item__link {
+          color: $header-nav-item-hover-text-color;
+
+          sup {
+            color: $header-nav-item-hover-text-color;
+          }
+
+          &:has(+ .dropdown-wrapper)::after {
+            content: icons.get-icon(chevron-up, $chevron-hover-color);
+          }
+        }
+
+        .header-submenu-item__link:hover {
+          color: $header-submenu-item-hover-text-color;
+          text-decoration: underline;
+
+          sup {
+            color: $header-submenu-item-hover-text-color;
+          }
+        }
+      }
+    }
+  }
+
+  // Mobile navigation styles ================================
+  .mobile-drawer {
+    background-color: $mobile-drawer-bg-color;
+
+    .mobile-nav-item__link {
+      color: $mobile-nav-item-text-color;
+
+      sup {
+        color: $mobile-nav-item-text-color;
+      }
+
+      &:has(+ .dropdown-wrapper)::after {
+        content: icons.get-icon(chevron-down, $chevron-color);
+        width: 20px;
+        height: 20px;
+        margin-left: auto;
+      }
+    }
+
+    .mobile-submenu-item__link {
+      color: $mobile-submenu-item-text-color;
+
+      sup {
+        color: $mobile-submenu-item-text-color;
+      }
+    }
+
+    .mobile-nav-item.open {
+      .mobile-nav-item__link {
+        color: $mobile-nav-item-open-text-color;
+
+        sup {
+          color: $mobile-nav-item-open-text-color;
+        }
+
+        &::after {
+          content: icons.get-icon(chevron-up, $chevron-hover-color);
+        }
+      }
+
+      .mobile-submenu-item__link:hover {
+        color: $mobile-submenu-item-hover-text-color;
+        text-decoration: underline;
+
+        sup {
+          color: $mobile-submenu-item-hover-text-color;
+        }
+      }
+    }
+  }
+}
+
+// Lists ====================================
+@mixin marker__color($color: $legacy) {
+  color: $color;
+}
+
+// Footer ====================================
+@mixin footer__theme(
+  $footer-bg: #fff,
+  $text-color: $charcoal,
+  $link-color: $foundation,
+  $link-hover-color: $legacy,
+  $drawer-chevron-color: $foundation,
+  $drawer-border-color: $field-text-disabled,
+  $footer-row-separator-color: $field-outline-disabled,
+  $footer-list-separator-color: $field-outline-disabled
+) {
+  .footer {
+    background-color: $footer-bg;
+    color: $text-color;
+
+    .footer__title,
+    .footer__link-primary,
+    .footer__link-secondary,
+    .footer__link-tertiary,
+    .breadcrumb a {
+      color: $link-color;
+      text-decoration: none;
+    }
+
+    .footer__link-primary,
+    .footer__link-secondary,
+    .footer__link-tertiary,
+    .breadcrumb a {
+      &:hover {
+        color: $link-hover-color;
+        text-decoration: underline;
+      }
+    }
+
+    .footer__links {
+      .footer__title {
+        border-color: $drawer-border-color;
+
+        &::after {
+          background: icons.get-icon(chevron-down-large, $drawer-chevron-color)
+            center no-repeat;
+        }
+      }
+
+      &.open {
+        .footer__title {
+          &::after {
+            background-image: icons.get-icon(
+              chevron-up-large,
+              $drawer-chevron-color
+            );
+          }
+        }
+      }
+    }
+
+    .footer__row-separator {
+      border: none;
+      border-top: 1px solid $footer-row-separator-color;
+    }
+
+    .footer__list-separator {
+      border: none;
+      border-top: 1px dashed $footer-list-separator-color;
+    }
+  }
+}

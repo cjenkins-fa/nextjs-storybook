@@ -1,0 +1,112 @@
+@use "sass:map";
+@use "sass:meta";
+@use "sass:list";
+
+// -------------------------------------------------------------
+// Helpers
+// -------------------------------------------------------------
+@function _is-map($x) { @return meta.type-of($x) == 'map'; }
+
+// Join a list of keys into a single hyphenated CSS variable suffix.
+@function _kjoin($parts, $sep: "-") {
+  $out: null;
+  @for $i from 1 through list.length($parts) {
+    $part: list.nth($parts, $i);
+    $out: if($i == 1, #{$part}, "#{$out}#{$sep}#{$part}");
+  }
+  @return $out;
+}
+
+// Recursively flatten a (possibly nested) map into a 1‑level map.
+// Example: (family: (sans: value)) -> ("family-sans": value)
+@function _flatten-map($m, $prefix: ()) {
+  $flat: ();
+  @if not _is-map($m) { @return $flat; }
+  @each $k, $v in $m {
+    $path: list.append($prefix, $k, comma);
+    @if meta.type-of($v) == 'map' {
+      $flat: map.merge($flat, _flatten-map($v, $path));
+    } @else {
+      $flat: map.merge($flat, (_kjoin($path): $v));
+    }
+  }
+  @return $flat;
+}
+
+// Emit a map of key/value pairs as CSS custom properties with a prefix.
+// Accepts nested maps (they're flattened as "a-b-c").
+@mixin _emit-vars($prefix, $maybe-map) {
+  @if _is-map($maybe-map) {
+    $flat: _flatten-map($maybe-map);
+    @each $k, $v in $flat {
+      --#{$prefix}-#{$k}: #{$v};
+    }
+  }
+}
+
+// -------------------------------------------------------------
+// Defaults for optional groups
+// -------------------------------------------------------------
+$stroke-defaults: (
+  sm: 1px,
+  md: 2px,
+  lg: 3px,
+  focus: 2px
+) !default;
+
+$icon-size-defaults: (
+  xs: 12px,
+  sm: 16px,
+  md: 20px,
+  lg: 24px,
+  xl: 32px
+) !default;
+
+// -------------------------------------------------------------
+// Main mixin
+// -------------------------------------------------------------
+// @param $brand  – the SCSS map for a brand (your brand files export $brand)
+// @param $mode   – light | dark
+// @param $set-color-scheme – set UA hint for native widgets (default: true)
+@mixin brand-vars($brand, $mode: light, $set-color-scheme: true) {
+  @if not _is-map($brand) {
+    @warn "brand-vars() expects a map.";
+  } @else {
+
+    // --- Non-mode groups
+    @include _emit-vars('space',  map.get($brand, spacing));
+    @include _emit-vars('radius', map.get($brand, radius));
+    @include _emit-vars('shadow', map.get($brand, shadow));
+    @include _emit-vars('font',   map.get($brand, typography));
+
+    // Stroke: safe fallback if brand omits it
+    $stroke: map.get($brand, stroke);
+    @include _emit-vars('stroke', if(_is-map($stroke), $stroke, $stroke-defaults));
+
+    // Icon sizes: safe fallback
+    $icon-sizes: map.get($brand, icon-sizes);
+    @include _emit-vars('icon-size', if(_is-map($icon-sizes), $icon-sizes, $icon-size-defaults));
+
+    // Icons (background or mask sources): merge base + mode overrides once
+    $icons: map.get($brand, icons);
+    $icons-modes: map.get($brand, icons-modes);
+    $icons-merged: if(_is-map($icons), $icons, ());
+    @if _is-map($icons-modes) and map.has-key($icons-modes, $mode) {
+      $icons-merged: map.merge($icons-merged, map.get($icons-modes, $mode));
+    }
+    @include _emit-vars('icon', $icons-merged);
+
+    // Colors: base + mode overrides merged once
+    $base-colors: map.get($brand, color);
+    $modes: map.get($brand, modes);
+    $mode-overrides: if(_is-map($modes) and map.has-key($modes, $mode), map.get($modes, $mode), ());
+    $colors-merged: if(_is-map($base-colors), $base-colors, ());
+    $colors-merged: map.merge($colors-merged, $mode-overrides);
+    @include _emit-vars('color', $colors-merged);
+
+    // UA hint for native widgets / scrollbars
+    @if $set-color-scheme {
+      color-scheme: if($mode == dark, dark light, light dark);
+    }
+  }
+}

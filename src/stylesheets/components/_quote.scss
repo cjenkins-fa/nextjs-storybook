@@ -1,0 +1,14 @@
+.quote {
+  border-top: solid 1px;
+  border-bottom: solid 1px;
+  padding: 40px 20px;
+
+  &__text {
+    font-size: 1.5rem;
+    font-weight: 700;
+
+    &.white {
+      border-color: #fff;
+    }
+  }
+}

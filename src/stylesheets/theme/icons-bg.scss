@@ -1,0 +1,22 @@
+// Background icon utilities
+// This file provides utility classes for background icons
+
+// Base icon class
+.bg-icon {
+  background-image: var(--bg-icon-src, none);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  display: inline-block;
+  
+  // Default size
+  width: var(--icon-size, 1rem);
+  height: var(--icon-size, 1rem);
+}
+
+// Icon size utilities
+.bg-icon--xs { --icon-size: 12px; }
+.bg-icon--sm { --icon-size: 16px; }
+.bg-icon--md { --icon-size: 20px; }
+.bg-icon--lg { --icon-size: 24px; }
+.bg-icon--xl { --icon-size: 32px; }

@@ -1,0 +1,25 @@
+@use '../layout/bootstrap-grid' as gridMixins;
+
+// Band ------------------------------
+.band {
+  padding: 60px 0px 80px;
+  background-size: cover;
+  background-repeat: no-repeat;
+
+  &:first-child {
+    padding-top: 100px;
+  }
+
+  &--hero {
+    padding-top: 70px;
+    min-height: 560px;
+  }
+}
+
+@include gridMixins.media-breakpoint-up(md) {
+  .band {
+    &:first-child {
+      padding-top: 160px;
+    }
+  }
+}

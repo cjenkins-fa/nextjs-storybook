@@ -1,0 +1,58 @@
+@import './../base/bs-grid-variables-3.0.0';
+@import 'bootstrap/scss/bootstrap-grid';
+
+.container,
+.container-fluid
+{
+  --bs-gutter-x: 32px;
+  --bs-gutter-y: 16px;
+}
+
+.row,
+.row > * {
+  --bs-gutter-x: 16px;
+  --bs-gutter-y: 16px;
+}
+
+@include media-breakpoint-up(md) {
+  .container,
+  .container-fluid,
+  .container-xxl,
+  .container-xl,
+  .container-lg,
+  .container-md,
+  .container-sm,
+  .container-xs {
+    --bs-gutter-x: 48px;
+    --bs-gutter-y: 48px;
+  }
+
+  .row,
+  .row > *  {
+    --bs-gutter-x: 16px;
+    --bs-gutter-y: 16px;
+  }
+  
+}
+
+@include media-breakpoint-up(lg) {
+  .container,
+  .container-fluid,
+  .container-xxl,
+  .container-xl,
+  .container-lg,
+  .container-md,
+  .container-sm,
+  .container-xs
+  {
+    --bs-gutter-x: 128px;
+    --bs-gutter-y: 128px;
+  }
+
+  .row,
+  .row > *  {
+    --bs-gutter-x: 32px;
+    --bs-gutter-y: 32px;
+  }
+
+}

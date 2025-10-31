@@ -1,0 +1,24 @@
+// Brand: core — background-image icon tokens and sizes
+
+
+
+$icons: (
+  // Public absolute URL so it's always served by Next.js
+  "arrow-right": url("/svgs/arrow-right--dark.svg"),
+  "chevron-up": url("/svgs/chevron-up--dark.svg"),
+  "chevron-up-white": url("/svgs/chevron-up--white.svg"),
+  "chevron-up-dark": url("/svgs/chevron-up--dark.svg"),
+) !default;
+
+/* Optional per-scheme overrides (only keys that differ) */
+$icons_modes: (
+  dark: (
+    "arrow-right": url("/svgs/arrow-right--white.svg"),
+    "chevron-up": url("/svgs/chevron-up--white.svg"),
+  )
+) !default;
+
+/* Optional sizes (your mixin has fallbacks if you omit) */
+$icon_sizes: (
+  xs: 12px, sm: 16px, md: 20px, lg: 24px, xl: 32px
+) !default;

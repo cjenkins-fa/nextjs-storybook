@@ -1,0 +1,165 @@
+@use '../base/colors' as *;
+@use '../layout/bootstrap-grid' as gridMixins;
+
+// Modal ------------------------------
+.modal {
+  background: rgba($field-text-disabled, 0.5);
+  bottom: 0;
+  display: none;
+  left: 0;
+  top: 0;
+  position: fixed;
+  right: 0;
+  z-index: 1000;
+
+  .modal__dialog {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 1.75rem auto;
+    min-height: calc(100% - (1.75rem * 2));
+    position: relative;
+    width: auto;
+
+    .modal__content {
+      background-color: #fff;
+      display: flex;
+      border-radius: 8px;
+      flex-direction: column;
+      margin: 15px;
+      position: relative;
+
+      .modal__header {
+        align-items: center;
+        align-self: stretch;
+        border-radius: 8px 8px 0 0;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        gap: 20px;
+        justify-content: space-between;
+        padding: 30px 30px 20px 30px;
+
+        .close {
+          background: none;
+          border: none;
+          cursor: pointer;
+
+          svg,
+          svg path {
+            fill: $foundation;
+            stroke: $foundation;
+          }
+        }
+
+        .modal__title {
+          color: $foundation;
+          font-size: 1.125rem;
+          font-weight: 700;
+          line-height: 1.4375rem;
+          margin: 0;
+        }
+      }
+
+      .modal__body {
+        flex: 1 1 auto;
+        display: flex;
+        flex-direction: column;
+        padding: 20px 30px 30px;
+
+        .hbspt-form {
+          height: 100%;
+          flex: 1 1 auto;
+          display: flex;
+          flex-direction: column;
+
+          .hs-form {
+            flex: 1 1 auto;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+
+            .hs-submit {
+              align-items: center;
+              border-radius: 0 0 8px 8px;
+              box-sizing: border-box;
+              display: flex;
+              gap: 20px;
+              justify-content: flex-end;
+              height: auto;
+              padding: 30px 0 0;
+              width: 100%;
+
+              input[type='submit'] {
+                background-color: $welcome;
+                color: #fff;
+                border-radius: 50px;
+                font-size: 1rem;
+                line-height: 1.1875rem;
+                margin: 0;
+                padding: 15px 30px;
+              }
+            }
+          }
+        }
+      }
+
+      &--colored {
+        .modal__header {
+          background-color: $foundation;
+
+          .modal__title {
+            color: #fff;
+          }
+
+          .close {
+            svg,
+            svg path {
+              fill: #fff;
+              stroke: #fff;
+            }
+          }
+        }
+
+        .modal__body {
+          position: relative;
+
+          .hbspt-form {
+            .hs-form {
+              padding-bottom: 109px;
+
+              .hs-submit {
+                align-items: center;
+                background-color: $sky-light;
+                bottom: 0;
+                left: 0;
+                padding: 30px;
+                position: absolute;
+                width: 100%;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@include gridMixins.media-breakpoint-up(sm) {
+  .modal {
+    .modal__dialog {
+      .modal__content {
+        width: 530px;
+
+        .modal__header {
+          padding: 30px 30px 20px;
+
+          .modal__title {
+            font-size: 1.875rem;
+            line-height: 2.25rem;
+          }
+        }
+      }
+    }
+  }
+}

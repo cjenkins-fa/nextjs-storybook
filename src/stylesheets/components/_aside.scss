@@ -1,0 +1,33 @@
+@use '../base/mixins';
+
+aside {
+  width: 100%;
+  shape-outside: border-box;
+  shape-margin: 40px;
+  margin: 40px 0;
+  margin-left: unset;
+  border-top: solid 1px;
+  border-bottom: solid 1px;
+  .aside {
+    &__right-aligned,
+    &__left-aligned {
+      float: initial;
+    }
+  }
+}
+
+@include mixins.respond-to(med) {
+  .aside {
+    width: 420px;
+    padding-left: 8px;
+    &__right-aligned {
+      float: right;
+      margin-left: 40px;
+    }
+
+    &__left-aligned {
+      float: left;
+      margin-right: 40px;
+    }
+  }
+}

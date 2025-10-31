@@ -1,0 +1,672 @@
+@use '../base/colors' as *;
+@use '../base/mixins';
+@use '../layout/bootstrap-grid-3.0.0' as gridMixins;
+
+// Needed style rules outside of component =====================
+// Mobile navbar drawer effect
+body {
+  position: relative;
+
+  // Body dim effect for header flyouts ------------------------
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 90;
+  }
+
+  // Body hitbox for mobile drawer -----------------------------
+  .body-hitbox {
+    position: fixed;
+    width: 100%;
+    z-index: 1;
+    // This element's height is calculated with javascript, by the
+    // header's script function: initMobileDrawerSizeHandler()
+  }
+
+  // Common styles for dim effect ------------------------------
+  &::before,
+  .body-hitbox {
+    top: 0;
+    left: 0;
+    transition: opacity 300ms;
+    background-color: $field-text-disabled;
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  // Display dim effect when hovering a header nav item --------
+  &:has(.header .header__nav li:hover .dropdown-wrapper)::before {
+    opacity: 0.5;
+  }
+
+  header,
+  main,
+  footer,
+  .mobile-drawer {
+    transition: transform 400ms;
+  }
+
+  // Styles to trigger when drawer is open ---------------------
+  &.open {
+    header,
+    main,
+    footer,
+    .mobile-drawer {
+      transform: translateX(-260px);
+    }
+
+    .body-hitbox {
+      opacity: 0.5;
+      pointer-events: auto;
+    }
+  }
+}
+// =============================================================
+
+// Typography --------------------------------------------------
+.mobile-nav-item__link,
+.header-nav-item__link,
+.header-submenu-item__link,
+.mobile-submenu-item__link {
+  text-decoration: none;
+  text-wrap-mode: nowrap;
+}
+
+.mobile-nav-item__link,
+.mobile-submenu-item__link,
+.header-nav-item__link,
+.header-submenu-item__link {
+  font-size: 16px;
+  line-height: 19px;
+}
+
+.mobile-submenu-item__link {
+  font-size: 14px;
+  line-height: 17px;
+}
+
+.mobile-nav-item__link,
+.header-submenu-item__link {
+  font-weight: 700;
+}
+
+// Header Styles -----------------------------------------------
+.header {
+  position: absolute;
+  width: 100%;
+  z-index: 100;
+
+  &__logo {
+    flex-shrink: 0;
+    display: block;
+    width: 200px;
+    height: 34px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: left;
+  }
+
+  &__nav-button {
+    // New SVG based icon
+    display: block;
+    width: 20px;
+    height: 20px;
+    --animationSpeed: 400ms;
+    z-index: 2;
+    cursor: pointer;
+
+    &__top,
+    &__middle,
+    &__bottom {
+      transform-origin: center;
+      stroke-width: 2;
+    }
+
+    &__top {
+      animation: top-to-top var(--animationSpeed) ease-in-out forwards;
+    }
+
+    &__middle {
+      animation: middle-appear var(--animationSpeed) forwards;
+    }
+
+    &__bottom {
+      animation: bottom-to-top var(--animationSpeed) ease-in-out forwards;
+    }
+
+    &.open {
+      .header__nav-button__top {
+        animation: top-to-middle var(--animationSpeed) ease-in-out forwards;
+      }
+
+      .header__nav-button__middle {
+        animation: middle-disappear var(--animationSpeed) forwards;
+      }
+
+      .header__nav-button__bottom {
+        animation: bottom-to-middle var(--animationSpeed) ease-in-out forwards;
+      }
+    }
+
+    @keyframes middle-disappear {
+      0% {
+        opacity: 1;
+      }
+      50% {
+        opacity: 1;
+      }
+      50.01% {
+        opacity: 0;
+      }
+      100% {
+        opacity: 0;
+      }
+    }
+
+    @keyframes middle-appear {
+      0% {
+        opacity: 0;
+      }
+      50% {
+        opacity: 0;
+      }
+      50.01% {
+        opacity: 1;
+      }
+      100% {
+        opacity: 1;
+      }
+    }
+
+    @keyframes top-to-middle {
+      0% {
+        transform: translateY(0px);
+      }
+      50% {
+        transform: translateY(6px);
+      }
+      51% {
+        transform: rotateZ(0deg) translateY(6px);
+      }
+      100% {
+        transform: rotateZ(-45deg) translateY(6px);
+      }
+    }
+
+    @keyframes top-to-top {
+      0% {
+        transform: rotateZ(-45deg) translateY(6px);
+      }
+      50% {
+        transform: rotateZ(0deg) translateY(6px);
+      }
+      100% {
+        transform: translateY(0px);
+      }
+    }
+
+    @keyframes bottom-to-middle {
+      0% {
+        transform: translateY(0px);
+      }
+      50% {
+        transform: translateY(-6px);
+      }
+      51% {
+        transform: rotateZ(0deg) translateY(-6px);
+      }
+      100% {
+        transform: rotateZ(45deg) translateY(-6px);
+      }
+    }
+
+    @keyframes bottom-to-top {
+      0% {
+        transform: rotateZ(45deg) translateY(-6px);
+      }
+      50% {
+        transform: rotateZ(0deg) translateY(-6px);
+      }
+      100% {
+        transform: translateY(0px);
+      }
+    }
+  }
+
+  .header-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    height: 56px;
+    gap: 25px;
+  }
+}
+
+.mobile-drawer {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  left: 100%;
+  width: 260px;
+  align-self: flex-start;
+
+  .main-nav-list,
+  .system-nav-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    .mobile-nav-item {
+      .mobile-nav-item__link {
+        display: flex;
+        padding: 10px 20px;
+        border-top: 1px solid $field-outline-disabled;
+
+        // Chevron icon is put through theme mixin
+      }
+    }
+  }
+
+  .mobile-nav-submenu-list {
+    list-style: none;
+    padding: 0;
+
+    .mobile-submenu-item {
+      &__link {
+        display: block;
+        padding: 7.5px 20px;
+      }
+
+      &:first-child {
+        .mobile-submenu-item__link {
+          padding-top: 5px;
+        }
+      }
+
+      &:last-child {
+        .mobile-submenu-item__link {
+          padding-bottom: 20px;
+        }
+      }
+    }
+  }
+}
+
+// Sticky header
+.header.header--sticky {
+  position: fixed;
+
+  &.scrolled {
+    backdrop-filter: blur(12px);
+  }
+
+  .mobile-drawer {
+    position: fixed;
+    height: 100vh;
+    overflow-y: auto;
+  }
+
+  // Set the mobile drawer to a fixed height
+  + .mobile-drawer {
+    overflow-y: auto;
+    height: 100vh;
+  }
+
+  // Set the body hitbox to a fixed height
+  .body-hitbox {
+    height: 100vh;
+  }
+}
+
+.dropdown-wrapper {
+  display: none;
+}
+
+// Mobile search -----------------------------------------------
+.mobile-search {
+  padding: 20px;
+
+  .input-group {
+    display: flex;
+    justify-content: space-between;
+    gap: 4px;
+    background-color: #fff;
+    padding: 0 3px 0 7px;
+    border: 1px solid $field-outline;
+    border-radius: 6px;
+
+    .search-input {
+      background-color: transparent;
+      flex-grow: 1;
+      color: $field-text-value;
+      font-size: 12px;
+      line-height: 15px;
+      margin: 0;
+      padding: 7px 0px;
+      border: none;
+
+      &::placeholder {
+        color: $field-text-value;
+      }
+    }
+
+    .input-group-btn {
+      display: flex;
+      align-items: center;
+      background-color: transparent;
+      padding: 0 4.5px;
+      border: none;
+      cursor: pointer;
+
+      img {
+        display: block;
+      }
+    }
+  }
+}
+
+// Header size change ------------------------------------------
+@include gridMixins.media-breakpoint-up(md) {
+  .header {
+    .header-wrapper {
+      height: 100px;
+    }
+
+    .header__logo {
+      width: 280px;
+      height: 55px;
+    }
+  }
+}
+
+// Header navbar styles ----------------------------------------
+.header__nav {
+  flex-grow: 1;
+  position: relative;
+  align-self: flex-end;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  .main-nav-list,
+  .system-nav-list {
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    .header-nav-item {
+      position: relative;
+      padding: 0 12.5px;
+
+      &:first-child {
+        padding-left: 0;
+
+        .dropdown-wrapper {
+          left: -44px;
+
+          &:has(
+              .submenu-columns
+                .header-nav-submenu-list:first-child
+                .promo-content
+            ) {
+            left: -237px;
+          }
+
+          &.lefty {
+            left: unset;
+            right: -44px;
+          }
+        }
+      }
+
+      .header-nav-item__link {
+        display: flex;
+        padding-bottom: 37px;
+      }
+    }
+
+    .dropdown-wrapper {
+      position: absolute;
+      top: 100%;
+      left: -32.5px;
+
+      &:has(
+          .submenu-columns .header-nav-submenu-list:first-child .promo-content
+        ) {
+        left: -237px;
+      }
+
+      &.lefty {
+        left: unset;
+        right: -32.5px;
+      }
+    }
+
+    .submenu-columns {
+      display: flex;
+
+      &::before {
+        content: '';
+        display: block;
+        height: 30px;
+        width: 100%;
+        position: absolute;
+        left: 0;
+        bottom: 100%;
+        z-index: 1;
+      }
+
+      .header-nav-submenu-list {
+        list-style: none;
+        width: fit-content;
+        padding: 0;
+        background-color: #fff;
+
+        &:first-child {
+          border-bottom-left-radius: 8px;
+        }
+
+        &:last-child {
+          border-bottom-right-radius: 8px;
+        }
+
+        &:not(:last-of-type):not(:has(.promo-content)):not(
+            :has(+ .header-nav-submenu-list .promo-content)
+          ) {
+          border-right: 1px solid $field-outline-disabled;
+        }
+
+        &:has(.promo-content) {
+          background-color: $foundation;
+        }
+
+        .header-submenu-item {
+          .header-submenu-item__link {
+            display: block;
+            padding: 17.5px 45px;
+          }
+
+          &:first-child {
+            .header-submenu-item__link {
+              padding-top: 38px;
+            }
+          }
+
+          &:last-child {
+            .header-submenu-item__link {
+              padding-bottom: 45px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+// Header nav items with descriptions
+.header__nav
+  .main-nav-list
+  .submenu-columns
+  .header-nav-submenu-list:has(.submenu-link-title),
+.header__nav
+  .system-nav-list
+  .submenu-columns
+  .header-nav-submenu-list:has(.submenu-link-title) {
+  width: 316px;
+}
+
+.header-submenu-item__link {
+  .submenu-link-title {
+    display: inline-block;
+    margin-bottom: 5px;
+  }
+
+  p {
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 17px;
+    white-space: normal;
+
+    &:last-of-type {
+      margin-bottom: 0;
+    }
+  }
+}
+
+.header-search {
+  .input-group {
+    display: flex;
+    justify-content: space-between;
+    gap: 4px;
+    background-color: #fff;
+    padding: 0 3px 0 7px;
+    border: 1px solid $field-outline;
+    border-radius: 6px;
+
+    .search-input {
+      color: $field-text-value;
+      background-color: transparent;
+      font-size: 12px;
+      line-height: 15px;
+      width: 100%;
+      margin: 0;
+      padding: 7px 0px;
+      border: none;
+
+      &::placeholder {
+        color: $field-text-value;
+      }
+    }
+
+    .input-group-btn {
+      display: flex;
+      align-items: center;
+      background-color: transparent;
+      padding: 0 4.5px;
+      border: none;
+      cursor: pointer;
+
+      img {
+        display: block;
+      }
+    }
+  }
+}
+
+.promo-content {
+  display: flex;
+  flex-direction: column;
+  max-width: 204px;
+  height: 100%;
+  box-sizing: border-box;
+
+  .promo-content__image {
+    display: block;
+    width: 204px;
+    height: 162px;
+    object-fit: cover;
+    object-position: top center;
+    pointer-events: none;
+
+    &.promo-image-no-credit {
+      height: 149px;
+    }
+  }
+
+  .promo-content__detail {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 20px;
+
+    .promo-content__detail-header {
+      font-size: 18px;
+      font-weight: 900;
+      line-height: 23px;
+    }
+
+    .promo-content__detail-text {
+      font-size: 14px;
+      font-weight: 300;
+      line-height: 17px;
+    }
+
+    .promo-content__detail-lead-text {
+      font-size: 16px;
+      font-weight: 300;
+      line-height: 19px;
+    }
+
+    .promo-content__detail-credit {
+      font-size: 14px;
+      font-weight: 700;
+      line-height: 17px;
+      text-align: right;
+    }
+
+    .promo-content__detail-header,
+    .promo-content__detail-text,
+    .promo-content__detail-lead-text,
+    .promo-content__detail-credit {
+      margin: 0;
+    }
+
+    .promo-content__detail-link {
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 17px;
+      text-decoration: none;
+      border-radius: 25px;
+      padding: 4px 10px;
+      margin: auto auto 0;
+    }
+  }
+}
+
+// Search input outline focus styles ---------------------------
+.header-search,
+.mobile-search {
+  .input-group {
+    &:has(.search-input:focus),
+    &:has(.input-group-btn:focus) {
+      outline: 1px solid $welcome;
+    }
+  }
+
+  .search-input,
+  .input-group-btn {
+    &:focus {
+      outline: none;
+    }
+  }
+}
+
+// Default header theme
+@include mixins.header__theme();

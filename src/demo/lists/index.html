@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../_assets/demo.scss" />
+
+  <title>Lists</title>
+</head>
+
+<body>
+  <style>
+    h2,
+    h3 {
+      margin-bottom: 0;
+    }
+  </style>
+
+  <header class="header header--sticky">
+    <div class="body-hitbox"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-12 header-wrapper">
+          <a class="header__logo" href="/demo/" title="Go to home page"></a>
+          <svg class="header__nav-button order-1 ms-auto" xmlns="http://www.w3.org/2000/svg">
+            <path class="header__nav-button__top" d="M2.125 4.40002H19" stroke="#141D3A" stroke-linecap="round" />
+            <path class="header__nav-button__middle" d="M2.125 10H19" stroke="#141D3A" stroke-linecap="round" />
+            <path class="header__nav-button__bottom" d="M2.125 15.6H19" stroke="#141D3A" stroke-linecap="round" />
+          </svg>
+
+          <nav class="header__nav d-none d-lg-flex">
+            <ul class="main-nav-list">
+              <li class="header-nav-item">
+                <a class="header-nav-item__link">Base</a>
+                <div class="dropdown-wrapper">
+                  <div class="submenu-columns">
+                    <ul class="header-nav-submenu-list">
+                      <li class="header-submenu-item">
+                        <a href="/demo/colors/" class="header-submenu-item__link">Colors</a>
+                      </li>
+                      <li class="header-submenu-item">
+                        <a href="/demo/icons/" class="header-submenu-item__link">Icons</a>
+                      </li>
+                      <li class="header-submenu-item">
+                        <a href="/demo/typography/" class="header-submenu-item__link">Typography</a>
+                      </li>
+                    </ul>
+                    <ul class="header-nav-submenu-list">
+                      <li class="promo-content">
+                        <img class="promo-content__image" src="/images/promo-wsj-graceland-2.jpg"
+                          alt="Promo content image">
+                        <div class="promo-content__detail">
+                          <p class="promo-content__detail-lead-text white">Scammers tried to sell Graceland. Learn how
+                            to protect your home from being next.</p>
+                          <p class="promo-content__detail-credit white">-- Wall Street Journal</p>
+                          <a class="btn btn__medium-blue cta promo-content__detail-link" target="_blank"
+                            href="https://webreprints.djreprints.com/2501225.html">View The Article</a>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </li>
+              <li class="header-nav-item">
+                <a class="header-nav-item__link">Layout demo</a>
+                <div class="dropdown-wrapper">
+                  <div class="submenu-columns">
+                    <ul class="header-nav-submenu-list">
+                      <li class="promo-content">
+                        <img class="promo-content__image full" src="/images/promo-about-us.webp"
+                          alt="Promo content image">
+                        <div class="promo-content__detail">
+                          <p class="promo-content__detail-header white">We&rsquo;ve Got You Covered</p>
+                          <p class="promo-content__detail-text white">Discover why you can trust First American to help
+                            you own what&rsquo;s next.</p>
+                          <a class="btn btn__medium-blue cta promo-content__detail-link" href="/about-us/">Learn
+                            More</a>
+                        </div>
+                      </li>
+                    </ul>
+                    <ul class="header-nav-submenu-list">
+                      <li class="header-submenu-item">
+                        <a href="/demo/bands/" class="header-submenu-item__link">Bands</a>
+                      </li>
+                      <li class="header-submenu-item">
+                        <a href="/demo/grid/" class="header-submenu-item__link">Grid</a>
+                      </li>
+                      <li class="header-submenu-item">
+                        <a href="/demo/footer/" class="header-submenu-item__link">Footer</a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </li>
+              <li class="header-nav-item">
+                <a class="header-nav-item__link">Components</a>
+                <div class="dropdown-wrapper">
+                  <div class="submenu-columns">
+                    <ul class="header-nav-submenu-list">
+                      <li class="header-submenu-item">
+                        <a href="/demo/" class="header-submenu-item__link">Overview</a>
+                      </li>
+                      <li class="header-submenu-item">
+                        <a href="/demo/buttons/" class="header-submenu-item__link">Buttons</a>
+                      </li>
+                      <li class="header-submenu-item">
+                        <a href="/demo/form/" class="header-submenu-item__link">Form</a>
+                      </li>
+                      <li class="header-submenu-item">
+                        <a href="/demo/tiles/" class="header-submenu-item__link">Tiles</a>
+                      </li>
+                      <li class="header-submenu-item">
+                        <a href="/demo/cards/" class="header-submenu-item__link">Cards</a>
+                      </li>
+                    </ul>
+                    <ul class="header-nav-submenu-list">
+                      <li class="header-submenu-item">
+                        <a href="/demo/lists/" class="header-submenu-item__link">Lists</a>
+                      </li>
+                      <li class="header-submenu-item">
+                        <a href="/demo/quote/" class="header-submenu-item__link">Quote</a>
+                      </li>
+                      <li class="header-submenu-item">
+                        <a href="/demo/sidebar/" class="header-submenu-item__link">Sidebar</a>
+                      </li>
+                      <li class="header-submenu-item">
+                        <a href="/demo/videos/" class="header-submenu-item__link">Videos</a>
+                      </li>
+                      <li class="header-submenu-item">
+                        <a href="/demo/modal/" class="header-submenu-item__link">Modal</a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </li>
+            </ul>
+            <ul class="system-nav-list">
+              <li class="header-nav-item">
+                <a class="header-nav-item__link">System nav test</a>
+                <div class="dropdown-wrapper">
+                  <div class="submenu-columns">
+                    <ul class="header-nav-submenu-list">
+                      <li class="header-submenu-item">
+                        <a class="header-submenu-item__link">Test link 1</a>
+                      </li>
+                      <li class="header-submenu-item">
+                        <a class="header-submenu-item__link">Test link 2</a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </li>
+              <li class="header-nav-item">
+                <a class="header-nav-item__link">Contact Us</a>
+              </li>
+            </ul>
+          </nav>
+
+          <form id="header-search" class="header-search d-none d-xl-block" method="post" action="">
+            <div class="input-group">
+              <input type="text" name="header-search-input" id="header-search-input" class="search-input"
+                placeholder="Search" aria-label="Search" />
+              <button type="submit" id="header-search-btn" class="input-group-btn" aria-label="Search">
+                <span class="icon small icon--magnifier"></span>
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <nav class="mobile-drawer">
+    <form id="mobile-search" class="mobile-search" method="post" action="">
+      <div class="input-group">
+        <input type="text" name="mobile-search-text" id="mobile-search-input" class="search-input" placeholder="Search"
+          aria-label="Search" />
+        <button type="submit" id="mobile-search-btn" class="input-group-btn" aria-label="Search">
+          <span class="icon small icon--magnifier"></span>
+        </button>
+      </div>
+    </form>
+    <ul class="main-nav-list">
+      <li class="mobile-nav-item">
+        <a class="mobile-nav-item__link">Base</a>
+        <ul class="mobile-nav-submenu-list dropdown-wrapper">
+          <li class="mobile-submenu-item">
+            <a href="/demo/colors/" class="mobile-submenu-item__link">Colors</a>
+          </li>
+          <li class="mobile-submenu-item">
+            <a href="/demo/icons/" class="mobile-submenu-item__link">Icons</a>
+          </li>
+          <li class="mobile-submenu-item">
+            <a href="/demo/typography/" class="mobile-submenu-item__link">Typography</a>
+          </li>
+        </ul>
+      </li>
+      <li class="mobile-nav-item">
+        <a class="mobile-nav-item__link">Layout demo</a>
+        <ul class="mobile-nav-submenu-list dropdown-wrapper">
+          <li class="mobile-submenu-item">
+            <a href="/demo/bands/" class="mobile-submenu-item__link">Bands</a>
+          </li>
+          <li class="mobile-submenu-item">
+            <a href="/demo/grid/" class="mobile-submenu-item__link">Grid</a>
+          </li>
+          <li class="mobile-submenu-item">
+            <a href="/demo/footer/" class="mobile-submenu-item__link">Footer</a>
+          </li>
+        </ul>
+      </li>
+      <li class="mobile-nav-item">
+        <a class="mobile-nav-item__link">Components</a>
+        <ul class="mobile-nav-submenu-list dropdown-wrapper">
+          <li class="mobile-submenu-item">
+            <a href="/demo/" class="mobile-submenu-item__link">Overview</a>
+          </li>
+          <li class="mobile-submenu-item">
+            <a href="/demo/buttons/" class="mobile-submenu-item__link">Buttons</a>
+          </li>
+          <li class="mobile-submenu-item">
+            <a href="/demo/form/" class="mobile-submenu-item__link">Form</a>
+          </li>
+          <li class="mobile-submenu-item">
+            <a href="/demo/tiles/" class="mobile-submenu-item__link">Tiles</a>
+          </li>
+          <li class="mobile-submenu-item">
+            <a href="/demo/cards/" class="mobile-submenu-item__link">Cards</a>
+          </li>
+          <li class="mobile-submenu-item">
+            <a href="/demo/lists/" class="mobile-submenu-item__link">Lists</a>
+          </li>
+          <li class="mobile-submenu-item">
+            <a href="/demo/quote/" class="mobile-submenu-item__link">Quote</a>
+          </li>
+          <li class="mobile-submenu-item">
+            <a href="/demo/sidebar/" class="mobile-submenu-item__link">Sidebar</a>
+          </li>
+          <li class="mobile-submenu-item">
+            <a href="/demo/videos/" class="mobile-submenu-item__link">Videos</a>
+          </li>
+          <li class="mobile-submenu-item">
+            <a href="/demo/modal/" class="mobile-submenu-item__link">Modal</a>
+          </li>
+        </ul>
+      </li>
+    </ul>
+    <ul class="system-nav-list">
+      <li class="mobile-nav-item">
+        <a class="mobile-nav-item__link">System nav test</a>
+        <ul class="mobile-nav-submenu-list dropdown-wrapper">
+          <li class="mobile-submenu-item">
+            <a class="mobile-submenu-item__link">Test link 1</a>
+          </li>
+          <li class="mobile-submenu-item">
+            <a class="mobile-submenu-item__link">Test link 2</a>
+          </li>
+        </ul>
+      </li>
+      <li class="mobile-nav-item">
+        <a class="mobile-nav-item__link">Contact Us</a>
+      </li>
+    </ul>
+  </nav>
+
+  <main>
+    <section class="band band--hero">
+      <div class="grid">
+        <div class="grid__row--header center-text">
+          <h1 class="heading-1">List Components</h1>
+        </div>
+
+        <div class="grid__row">
+          <h2 class="heading-2 normal blue">Unordered Paragraph Lists</h2>
+        </div>
+
+        <div class="grid__row grid__row--offset-left">
+          <div class="grid__col grid__col--xs-12 grid__col--md-4 grid__col--lg--4">
+            <h3 class="heading-3 normal">Red Chevron</h3>
+            <ul class="list__unordered--chevron red">
+              <li class="list__element">
+                <p class="paragraph-2 bold blue">List item 1.</p>
+              </li>
+              <li class="list__element">
+                <p class="paragraph-2 bold blue">List item 2.</p>
+              </li>
+              <li class="list__element">
+                <p class="paragraph-2 bold blue">List item 3.</p>
+              </li>
+              <li class="list__element">
+                <p class="paragraph-2 bold blue">List item 4.</p>
+              </li>
+            </ul>
+            <br>
+            <ul class="list__unordered--chevron red">
+              <li class="list__element">List item 1 with sub-paragraph.
+                <p class="paragraph-3 light margin--top-5 margin--bottom-15">This is a paragraph inside
+                  a list
+                  element.
+                </p>
+              </li>
+              <li class="list__element">List item 2 sub-paragraph.
+                <p class="paragraph-3 light margin--top-5 margin--bottom-15">This is a paragraph inside
+                  a list
+                  element.
+                </p>
+              </li>
+              <li class="list__element">List item 3 sub-paragraph.
+                <p class="paragraph-3 light margin--top-5 margin--bottom-15">This is a paragraph inside
+                  a list
+                  element.
+                </p>
+              </li>
+              <li class="list__element">List item 4 sub-paragraph.
+                <p class="paragraph-3 light margin--top-5 margin--bottom-15">This is a paragraph inside
+                  a list
+                  element.
+                </p>
+              </li>
+            </ul>
+            <ul class="list__unordered--star red">
+              <li class="list__element">List item 1 with sub-paragraph.
+                <p class="paragraph-3 light margin--top-5 margin--bottom-15">This is a paragraph inside
+                  a list
+                  element.
+                </p>
+              </li>
+              <li class="list__element">List item 2 sub-paragraph.
+                <p class="paragraph-3 light margin--top-5 margin--bottom-15">This is a paragraph inside
+                  a list
+                  element.
+                </p>
+              </li>
+              <li class="list__element">List item 3 sub-paragraph.
+                <p class="paragraph-3 light margin--top-5 margin--bottom-15">This is a paragraph inside
+                  a list
+                  element.
+                </p>
+              </li>
+              <li class="list__element">List item 4 sub-paragraph.
+                <p class="paragraph-3 light margin--top-5 margin--bottom-15">This is a paragraph inside
+                  a list
+                  element.
+                </p>
+              </li>
+            </ul>
+          </div>
+
+          <div class="grid__col grid__col--xs-12 grid__col--md-4 grid__col--lg--4">
+            <h3 class="heading-3 normal">Green Chevron</h3>
+            <ul class="list__unordered--chevron green">
+              <li class="list__element">
+                <p class="paragraph-2 bold blue">List item 1.</p>
+              </li>
+              <li class="list__element">
+                <p class="paragraph-2 bold blue">List item 2.</p>
+              </li>
+              <li class="list__element">
+                <p class="paragraph-2 bold blue">List item 3.</p>
+              </li>
+              <li class="list__element">
+                <p class="paragraph-2 bold blue">List item 4.</p>
+              </li>
+            </ul>
+            <br>
+            <ul class="list__unordered--chevron green">
+              <li class="list__element">List item 1 with sub-paragraph.
+                <p class="paragraph-3 light margin--top-5 margin--bottom-15">This is a paragraph inside
+                  a list
+                  element.
+                </p>
+              </li>
+              <li class="list__element">List item 2 sub-paragraph.
+                <p class="paragraph-3 light margin--top-5 margin--bottom-15">This is a paragraph inside
+                  a list
+                  element.
+                </p>
+              </li>
+              <li class="list__element">List item 3 sub-paragraph.
+                <p class="paragraph-3 light margin--top-5 margin--bottom-15">This is a paragraph inside
+                  a list
+                  element.
+                </p>
+              </li>
+              <li class="list__element">List item 4 sub-paragraph.
+                <p class="paragraph-3 light margin--top-5 margin--bottom-15">This is a paragraph inside
+                  a list
+                  element.
+                </p>
+              </li>
+            </ul>
+          </div>
+          <div class="grid__col grid__col--xs-12 grid__col--md-4 grid__col--lg--4 padding--horizontal-20"
+            style="background-color: black;">
+            <h3 class="heading-3 normal white">White Chevron</h3>
+            <ul class="list__unordered--chevron white">
+              <li class="list__element">
+                <p class="paragraph-2 bold">List item 1.</p>
+              </li>
+              <li class="list__element">
+                <p class="paragraph-2 bold">List item 2.</p>
+              </li>
+              <li class="list__element">
+                <p class="paragraph-2 bold">List item 3.</p>
+              </li>
+              <li class="list__element">
+                <p class="paragraph-2 bold">List item 4.</p>
+              </li>
+            </ul>
+            <br>
+            <ul class="list__unordered--chevron white">
+              <li class="list__element">List item 1 with sub-paragraph.
+                <p class="paragraph-3 light margin--top-5 margin--bottom-15">This is a paragraph inside
+                  a list
+                  element.
+                </p>
+              </li>
+              <li class="list__element">List item 2 sub-paragraph.
+                <p class="paragraph-3 light margin--top-5 margin--bottom-15">This is a paragraph inside
+                  a list
+                  element.
+                </p>
+              </li>
+              <li class="list__element">List item 3 sub-paragraph.
+                <p class="paragraph-3 light margin--top-5 margin--bottom-15">This is a paragraph inside
+                  a list
+                  element.
+                </p>
+              </li>
+              <li class="list__element">List item 4 sub-paragraph.
+                <p class="paragraph-3 light margin--top-5 margin--bottom-15">This is a paragraph inside
+                  a list
+                  element.
+                </p>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="grid__row">
+          <h2 class="heading-2 normal blue">Ordered Footnote List</h2>
+        </div>
+
+        <div class="grid__row">
+          <ol class="list__ordered-1">
+            <li class="list__element light">Footnote list item 1</li>
+            <li class="list__element light">Footnote list item 2</li>
+            <li class="list__element light">Footnote list item 3</li>
+            <li class="list__element light">Footnote list item 4</li>
+          </ol>
+          <ol class="list__ordered-2">
+            <li class="list__element light">Footnote list item 1</li>
+            <li class="list__element light">Footnote list item 2</li>
+            <li class="list__element light">Footnote list item 3</li>
+            <li class="list__element light">Footnote list item 4</li>
+          </ol>
+          <ol class="list__ordered-3">
+            <li class="list__element light">Footnote list item 1</li>
+            <li class="list__element light">Footnote list item 2</li>
+            <li class="list__element light">Footnote list item 3</li>
+            <li class="list__element light">Footnote list item 4</li>
+          </ol>
+        </div>
+
+        <div class="grid__row">
+          <ol class="list__ordered--footnote">
+            <li class="list__element"><a href="#" class="underline">Footnote list item 1</a></li>
+            <li class="list__element"><a href="#" class="underline">Footnote list item 2</a></li>
+            <li class="list__element"><a href="#" class="underline">Footnote list item 3</a></li>
+            <li class="list__element"><a href="#" class="underline">Footnote list item 4</a></li>
+          </ol>
+        </div>
+
+        <div class="grid__row">
+          <h2 class="heading-2 normal blue">Ordered coloured List</h2>
+        </div>
+
+        <div class="grid__row">
+          <ol class="list__ordered--coloured">
+            <li class="list__element">
+              <p><span class="list__element-title">Coloured list 1 item title</span>
+                coloured list item description paragraph. Lorem ipsum dolor sit amet
+                consectetur adipisicing elit. Deserunt nostrum illum repellat harum provident, mollitia
+                ullam
+                dignissimos
+                temporibus odit ipsam, ad magnam esse tempora eaque. Et ducimus natus cumque
+                praesentium.</p>
+            </li>
+            <li class="list__element">
+              <p><span class="list__element-title">Coloured list 2 item title</span>
+                coloured list item description paragraph. Lorem ipsum dolor sit amet
+                consectetur adipisicing elit. Deserunt nostrum illum repellat harum provident, mollitia
+                ullam
+                dignissimos
+                temporibus odit ipsam, ad magnam esse tempora eaque. Et ducimus natus cumque
+                praesentium.</p>
+            </li>
+            <li class="list__element">
+              <p><span class="list__element-title">Coloured list 3 item title</span>
+                coloured list item description paragraph. Lorem ipsum dolor sit amet
+                consectetur adipisicing elit. Deserunt nostrum illum repellat harum provident, mollitia
+                ullam
+                dignissimos
+                temporibus odit ipsam, ad magnam esse tempora eaque. Et ducimus natus cumque
+                praesentium.</p>
+            </li>
+            <li class="list__element">
+              <p><span class="list__element-title">Coloured list 4 item title</span>
+                coloured list item description paragraph. Lorem ipsum dolor sit amet
+                consectetur adipisicing elit. Deserunt nostrum illum repellat harum provident, mollitia
+                ullam
+                dignissimos
+                temporibus odit ipsam, ad magnam esse tempora eaque. Et ducimus natus cumque
+                praesentium.</p>
+            </li>
+          </ol>
+        </div>
+      </div>
+
+
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <!-- Breadcrumbs -->
+      <div class="row">
+        <div class="col-12">
+          <nav aria-label="Breadcrumb">
+            <ol class="breadcrumb">
+            </ol>
+          </nav>
+        </div>
+      </div>
+
+      <div class="row footer__top-nav">
+        <!-- Footer Links -->
+        <div class="footer__links">
+          <span class="footer__title">Base</span>
+          <div class="footer__links-drawer">
+            <ul>
+              <li><a class="footer__link-secondary" href="/demo/colors/">Colors</a></li>
+              <li><a class="footer__link-secondary" href="/demo/icons/">Icons</a></li>
+              <li><a class="footer__link-secondary" href="/demo/typography/">Typography</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="footer__links">
+          <span class="footer__title">Layout demo</span>
+          <div class="footer__links-drawer">
+            <ul>
+              <li><a class="footer__link-secondary" href="/demo/bands/">Bands</a></li>
+              <li><a class="footer__link-secondary" href="/demo/grid/">Grid</a></li>
+              <li><a class="footer__link-secondary" href="/demo/footer/">Footer</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="footer__links">
+          <span class="footer__title">Components</span>
+          <div class="footer__links-drawer">
+            <ul>
+              <li><a class="footer__link-secondary" href="/demo/buttons/">Buttons</a></li>
+              <li><a class="footer__link-secondary" href="/demo/form/">Form</a></li>
+              <li><a class="footer__link-secondary" href="/demo/tiles/">Tiles</a></li>
+              <li><a class="footer__link-secondary" href="/demo/cards/">Cards</a></li>
+            </ul>
+            <hr class="footer__list-separator" />
+            <ul>
+              <li><a class="footer__link-secondary" href="/demo/lists/">Lists</a></li>
+              <li><a class="footer__link-secondary" href="/demo/quote/">Quote</a></li>
+              <li><a class="footer__link-secondary" href="/demo/sidebar/">Sidebar</a></li>
+              <li><a class="footer__link-secondary" href="/demo/videos/">Videos</a></li>
+              <li><a class="footer__link-secondary" href="/demo/modal/">Modal</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="footer__links d-lg-none">
+          <span class="footer__title">Visible only on mobile</span>
+          <div class="footer__links-drawer">
+            <ul>
+              <li><a class="footer__link-secondary">Privacy Policy</a></li>
+              <li><a class="footer__link-secondary">Cookie Preferences</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="footer__links open">
+          <span class="footer__title">Connect</span>
+          <div class="footer__links-drawer">
+            <ul>
+              <li><a class="footer__link-secondary">Find an Office</a></li>
+              <li><a class="footer__link-secondary">Contact Us</a></li>
+            </ul>
+
+            <div class="footer__social-links">
+              <a class="icon small icon--linkedin" href="https://www.linkedin.com/company/first-american"
+                target="_blank" aria-label="LinkedIn"></a>
+              <a class="icon small icon--facebook" href="https://www.facebook.com/First.American.Financial"
+                target="_blank" aria-label="Facebook"></a>
+              <a class="icon small icon--youtube" href="https://www.youtube.com/user/FirstAmTV" target="_blank"
+                aria-label="YouTube"></a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-12">
+          <hr class="footer__row-separator mb-lg-4 mb-3" />
+        </div>
+
+        <div class="col-12 col-lg-3 col-xl-4">
+          <form id="footer-search" class="footer-search">
+            <div class="input-group">
+              <input type="text" name="footer-search-input" id="footer-search-input" class="search-input"
+                placeholder="Search by keywords" aria-label="Search" />
+              <button type="submit" id="mobile-search-btn" class="input-group-btn" aria-label="Search"></button>
+            </div>
+          </form>
+        </div>
+
+        <div class="col-12 col-lg-9 col-xl-8 mt-2 footer__legal-links">
+          <ul>
+            <li><a class="footer__link-primary">Contact Us</a></li>
+            <li><a class="footer__link-primary">Report Suspicious Activity</a></li>
+            <li><a class="footer__link-primary">Privacy Policy</a></li>
+            <li><a class="footer__link-primary">Cookie Preferences</a></li>
+            <li><a class="footer__link-primary">Accessibility</a></li>
+            <li><a class="footer__link-primary">Terms of Use</a></li>
+          </ul>
+        </div>
+
+        <div class="col-12">
+          <hr class="footer__row-separator mt-lg-4 mt-3" />
+        </div>
+      </div>
+
+      <!-- Footer Disclaimer -->
+      <div class="row">
+        <div class="col-12 col-md-8">
+          <p class="footer__disclaimer">&copy;<span class="copyright__year">2023</span> First American Financial
+            Corporation and/or its affiliates. All rights reserved.</p>
+
+          <p class="footer__disclaimer">First American Title Insurance Company makes no express or implied warranty
+            respecting the information presented and assumes no responsibility for errors or omissions.</p>
+
+          <p class="footer__disclaimer">First American, the eagle logo, firstam.com, and First American Title are
+            registered trademarks or trademarks of First American Financial Corporation and/or its affiliates.</p>
+
+          <p class="footer__disclaimer">FORTUNE, FORTUNE 100 Best Companies to Work For, FORTUNE Best Workplaces for
+            Women, and FORTUNE Best Workplaces in Financial Services & Insurance are registered trademarks of FORTUNE
+            Media IP Limited. Other products and services are or may be trademarks of their respective owners.
+            References to third parties and their products and services are not intended to imply affiliation with or
+            sponsorship of or by First American Financial Corporation and/or its affiliates.</p>
+
+          <a class="btn btn--do-not-sell mt-1" href="javascript:window.evidon.notice.showOptions();"
+            aria-label="Do Not Sell or Share My Personal Information">Do Not Sell or Share My Personal Information</a>
+        </div>
+        <div class="col-12 col-md-4 back-to-top-container">
+          <button type="button" class="btn btn--back-to-top">Back to top</button>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ------------------------ JQuery ----------------------- -->
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+    integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+
+  <!-- ------------------ Demo site scripts ------------------ -->
+  <script src="../_assets/demo.js" type="module"></script>
+</body>
+
+</html>

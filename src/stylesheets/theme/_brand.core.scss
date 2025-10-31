@@ -1,0 +1,104 @@
+
+@use "sass:map";
+@use "sass:color";
+@use "./core/icons" as core_icons;
+@use "./core/buttons" as buttons;
+
+@function brand-core() {
+  // Semantic aliases
+  $foundation: #141D3A;
+  $welcome: #0075C3;
+  $white: #ffffff;
+
+  @return (
+    color: map.merge((
+      // Band surface colors
+      band-bg-dark: $foundation,
+      band-text-contrast: $white,
+
+      // band
+      band-bg-primary: $white,
+      /* accent: #d97706,
+      accent-contrast: #111827,
+      info: #0ea5e9, */
+      success: #126B40,
+      warning: #FFC107,
+      danger: #E62E1F,
+      
+      // cards
+      card-bg-primary: $white,
+      card-bg-secondary: $foundation,
+      card-bg-tertiary: #F2F9FD,
+      text-primary: #2f2f2f,
+      text-secondary: $foundation,
+      text-white: $white,
+      //border: #e2e8f0,
+    ), buttons.get-button-colors($foundation, $welcome, $white)),
+
+    modes: (
+      light: (
+        //background: $white,
+        //surface: $foundation,
+        text: #f2f2f2,
+        //text-muted: #475569,
+        //border: $welcome,
+      ),
+      dark: map.merge((
+        // body background colors
+        card-primary-bg: $white,
+        card-text-primary: #2f2f2f,
+        text-primary: $white,
+      ), buttons.get-button-colors-dark($foundation, $welcome, $white))
+    ),
+
+  stroke: (
+    border: 1px,  // button border width
+    focus: 2px, // button focus outline width
+    active: 2px, // button active outline width
+  ),
+
+  spacing: (
+    0: 0,
+    050: 2px,
+    100: 4px,
+    150: 6px,
+    200: 8px,
+    300: 12px,
+    400: 16px,
+    500: 24px,
+    800: 32px,
+    1200: 48px,
+    1600: 64px,
+    2400: 96px
+  ),
+
+  radius: (
+    r100: 4px,
+    r200: 8px,
+    r300: 12px,
+    rfull: 9999px
+  ),
+
+  shadow:  (
+    /* sm: 0 1px 2px 0 rgb(0 0 0 / 0.05),
+    md: 0 4px 12px -2px rgb(0 0 0 / 0.1),
+    lg: 0 15px 35px -5px rgb(0 0 0 / 0.22) */
+  ),
+
+    typography: (
+      /* family-sans: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial,
+                   "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji",
+      family-serif:"Source Serif Pro", ui-serif, Georgia, Cambria, "Times New Roman", Times, serif,
+      family-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace,
+      size-root: 16px, weight-regular: 400, weight-medium: 500, weight-bold: 700, line-default: 1.5 */
+    ),
+
+  );
+}
+
+/* ---- Local merge: attach icon groups to the brand map */
+$brand: map.merge(brand-core(), (
+  icons:        core_icons.$icons,
+  icons-modes:  core_icons.$icons_modes,
+  icon-sizes:   core_icons.$icon_sizes
+)) !default;

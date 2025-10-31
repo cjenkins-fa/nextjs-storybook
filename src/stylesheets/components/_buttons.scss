@@ -1,0 +1,204 @@
+@use '../base/colors' as *;
+@use '../base/svg-icons' as icons;
+@use '../layout/bootstrap-grid' as gridMixins;
+
+// Default button -------------------------------
+.btn,
+.btn:visited,
+input[type='submit'] {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  text-decoration: none;
+  text-align: center;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 19px;
+  text-wrap: nowrap;
+  color: #fff;
+  background-color: $foundation;
+  border: none;
+  padding: 15px 30px;
+  border-radius: 50px;
+  outline: none;
+  cursor: pointer;
+  box-sizing: border-box;
+
+  &.btn--welcome {
+    background-color: $welcome;
+  }
+
+  &:hover,
+  &:target,
+  &:active,
+  &:focus,
+  &:focus-visible,
+  &:focus-within &:visited {
+    color: #fff;
+    background-color: $vivid;
+  }
+
+  &.btn--small {
+    font-size: 14px;
+    line-height: 17px;
+    padding: 5px 10px 4px;
+  }
+
+  &.btn--medium {
+    font-size: 14px;
+    line-height: 17px;
+    padding: 12px 20px;
+  }
+
+  &.btn--promo-medium {
+    font-size: 14px;
+    line-height: 17px;
+    padding: 7px 20px;
+  }
+
+  &.btn--promo {
+    font-size: 18px;
+    line-height: 23px;
+    padding: 15px 30px;
+  }
+}
+
+.btn--outline {
+  background-color: #fff;
+  color: $foundation;
+  border: 2px solid $foundation;
+
+  &.btn--welcome {
+    background-color: #fff;
+    color: $welcome;
+    border-color: $welcome;
+  }
+
+  &:hover,
+  &:target,
+  &:active,
+  &:focus,
+  &:focus-visible,
+  &:focus-within &:visited {
+    background-color: $vivid;
+    border-color: $vivid;
+    color: #fff;
+  }
+}
+
+.btn:disabled,
+.btn--outline:disabled {
+  color: $field-text-disabled;
+  background-color: $field-fill-disabled;
+  cursor: not-allowed;
+  border: none;
+}
+
+.cta-link,
+.cta-link:visited {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 19px;
+  color: $foundation;
+  cursor: pointer;
+
+  &::after {
+    content: '';
+    background: icons.get-icon(cta-arrow-right, $foundation) center no-repeat;
+    display: block;
+    width: 20px;
+    height: 13px;
+  }
+
+  &:hover,
+  &:target,
+  &:active,
+  &:focus,
+  &:focus-visible,
+  &:focus-within &:visited {
+    color: $legacy;
+    text-decoration: underline;
+
+    &::after {
+      background-image: icons.get-icon(cta-arrow-right, $legacy);
+    }
+  }
+}
+
+// Buttons with icons ---------------------------
+.btn--calculator {
+  &::before {
+    content: '';
+    background: icons.get-icon(calculator, #fff) center no-repeat;
+    display: block;
+    width: 40px;
+    height: 40px;
+  }
+
+  &.calculator--dark {
+    &::before {
+      background-image: icons.get-icon(calculator, $foundation);
+    }
+
+    &:hover::before {
+      background-image: icons.get-icon(calculator, #fff);
+    }
+  }
+
+  &:disabled::before {
+    background-image: icons.get-icon(calculator, $field-text-disabled);
+  }
+}
+
+// Do Not Sell or Share Button > Extends btn--outline ---------------
+.btn--do-not-sell {
+  @extend .btn--outline;
+  font-size: 14px;
+  line-height: 17px;
+  padding: 12px 20px;
+  text-align: center;
+  width: 100%;
+}
+
+// Back to top button > Extends btn--outline  -----------------------
+.btn--back-to-top {
+  @extend .btn--outline;
+  flex-direction: column;
+  gap: 3px;
+  padding: 11px 15px;
+  font-weight: 700;
+  border-width: 1px;
+  border-radius: 8px;
+
+  &::before {
+    content: '';
+    background: icons.get-icon(chevron-up-medium, $foundation) center no-repeat;
+    display: block;
+    width: 20px;
+    height: 20px;
+  }
+
+  &:hover,
+  &:target,
+  &:active,
+  &:focus,
+  &:focus-visible,
+  &:focus-within &:visited {
+    &::before {
+      background-image: icons.get-icon(chevron-up-medium, #fff);
+    }
+  }
+}
+
+@include gridMixins.media-breakpoint-up(md) {
+  .btn--do-not-sell {
+    width: fit-content;
+  }
+}
+
+// End of Buttons ------------------------------

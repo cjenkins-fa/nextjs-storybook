@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../_assets/demo.scss" />
+  <link rel="stylesheet" href="./icons.scss">
+
+  <title>Icons | FA Web Core Demo</title>
+</head>
+
+<body>
+  <header class="header header--sticky">
+    <div class="body-hitbox"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-12 header-wrapper">
+          <a class="header__logo" href="/demo/" title="Go to home page"></a>
+          <svg class="header__nav-button order-1 ms-auto" xmlns="http://www.w3.org/2000/svg">
+            <path class="header__nav-button__top" d="M2.125 4.40002H19" stroke="#141D3A" stroke-linecap="round" />
+            <path class="header__nav-button__middle" d="M2.125 10H19" stroke="#141D3A" stroke-linecap="round" />
+            <path class="header__nav-button__bottom" d="M2.125 15.6H19" stroke="#141D3A" stroke-linecap="round" />
+          </svg>
+
+          <nav class="header__nav d-none d-lg-flex">
+            <ul class="main-nav-list">
+              <li class="header-nav-item">
+                <a class="header-nav-item__link">Base</a>
+                <div class="dropdown-wrapper">
+                  <div class="submenu-columns">
+                    <ul class="header-nav-submenu-list">
+                      <li class="header-submenu-item">
+                        <a href="/demo/colors/" class="header-submenu-item__link">Colors</a>
+                      </li>
+                      <li class="header-submenu-item">
+                        <a href="/demo/icons/" class="header-submenu-item__link">Icons</a>
+                      </li>
+                      <li class="header-submenu-item">
+                        <a href="/demo/typography/" class="header-submenu-item__link">Typography</a>
+                      </li>
+                    </ul>
+                    <ul class="header-nav-submenu-list">
+                      <li class="promo-content">
+                        <img class="promo-content__image" src="/images/promo-wsj-graceland-2.jpg"
+                          alt="Promo content image">
+                        <div class="promo-content__detail">
+                          <p class="promo-content__detail-lead-text white">Scammers tried to sell Graceland. Learn how
+                            to protect your home from being next.</p>
+                          <p class="promo-content__detail-credit white">-- Wall Street Journal</p>
+                          <a class="btn btn__medium-blue cta promo-content__detail-link" target="_blank"
+                            href="https://webreprints.djreprints.com/2501225.html">View The Article</a>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </li>
+              <li class="header-nav-item">
+                <a class="header-nav-item__link">Layout demo</a>
+                <div class="dropdown-wrapper">
+                  <div class="submenu-columns">
+                    <ul class="header-nav-submenu-list">
+                      <li class="promo-content">
+                        <img class="promo-content__image full" src="/images/promo-about-us.webp"
+                          alt="Promo content image">
+                        <div class="promo-content__detail">
+                          <p class="promo-content__detail-header white">We&rsquo;ve Got You Covered</p>
+                          <p class="promo-content__detail-text white">Discover why you can trust First American to help
+                            you own what&rsquo;s next.</p>
+                          <a class="btn btn__medium-blue cta promo-content__detail-link" href="/about-us/">Learn
+                            More</a>
+                        </div>
+                      </li>
+                    </ul>
+                    <ul class="header-nav-submenu-list">
+                      <li class="header-submenu-item">
+                        <a href="/demo/bands/" class="header-submenu-item__link">Bands</a>
+                      </li>
+                      <li class="header-submenu-item">
+                        <a href="/demo/grid/" class="header-submenu-item__link">Grid</a>
+                      </li>
+                      <li class="header-submenu-item">
+                        <a href="/demo/footer/" class="header-submenu-item__link">Footer</a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </li>
+              <li class="header-nav-item">
+                <a class="header-nav-item__link">Components</a>
+                <div class="dropdown-wrapper">
+                  <div class="submenu-columns">
+                    <ul class="header-nav-submenu-list">
+                      <li class="header-submenu-item">
+                        <a href="/demo/" class="header-submenu-item__link">Overview</a>
+                      </li>
+                      <li class="header-submenu-item">
+                        <a href="/demo/buttons/" class="header-submenu-item__link">Buttons</a>
+                      </li>
+                      <li class="header-submenu-item">
+                        <a href="/demo/form/" class="header-submenu-item__link">Form</a>
+                      </li>
+                      <li class="header-submenu-item">
+                        <a href="/demo/tiles/" class="header-submenu-item__link">Tiles</a>
+                      </li>
+                      <li class="header-submenu-item">
+                        <a href="/demo/cards/" class="header-submenu-item__link">Cards</a>
+                      </li>
+                    </ul>
+                    <ul class="header-nav-submenu-list">
+                      <li class="header-submenu-item">
+                        <a href="/demo/lists/" class="header-submenu-item__link">Lists</a>
+                      </li>
+                      <li class="header-submenu-item">
+                        <a href="/demo/quote/" class="header-submenu-item__link">Quote</a>
+                      </li>
+                      <li class="header-submenu-item">
+                        <a href="/demo/sidebar/" class="header-submenu-item__link">Sidebar</a>
+                      </li>
+                      <li class="header-submenu-item">
+                        <a href="/demo/videos/" class="header-submenu-item__link">Videos</a>
+                      </li>
+                      <li class="header-submenu-item">
+                        <a href="/demo/modal/" class="header-submenu-item__link">Modal</a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </li>
+            </ul>
+            <ul class="system-nav-list">
+              <li class="header-nav-item">
+                <a class="header-nav-item__link">System nav test</a>
+                <div class="dropdown-wrapper">
+                  <div class="submenu-columns">
+                    <ul class="header-nav-submenu-list">
+                      <li class="header-submenu-item">
+                        <a class="header-submenu-item__link">Test link 1</a>
+                      </li>
+                      <li class="header-submenu-item">
+                        <a class="header-submenu-item__link">Test link 2</a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </li>
+              <li class="header-nav-item">
+                <a class="header-nav-item__link">Contact Us</a>
+              </li>
+            </ul>
+          </nav>
+
+          <form id="header-search" class="header-search d-none d-xl-block" method="post" action="">
+            <div class="input-group">
+              <input type="text" name="header-search-input" id="header-search-input" class="search-input"
+                placeholder="Search" aria-label="Search" />
+              <button type="submit" id="header-search-btn" class="input-group-btn" aria-label="Search">
+                <span class="icon small icon--magnifier"></span>
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <nav class="mobile-drawer">
+    <form id="mobile-search" class="mobile-search" method="post" action="">
+      <div class="input-group">
+        <input type="text" name="mobile-search-text" id="mobile-search-input" class="search-input" placeholder="Search"
+          aria-label="Search" />
+        <button type="submit" id="mobile-search-btn" class="input-group-btn" aria-label="Search">
+          <span class="icon small icon--magnifier"></span>
+        </button>
+      </div>
+    </form>
+    <ul class="main-nav-list">
+      <li class="mobile-nav-item">
+        <a class="mobile-nav-item__link">Base</a>
+        <ul class="mobile-nav-submenu-list dropdown-wrapper">
+          <li class="mobile-submenu-item">
+            <a href="/demo/colors/" class="mobile-submenu-item__link">Colors</a>
+          </li>
+          <li class="mobile-submenu-item">
+            <a href="/demo/icons/" class="mobile-submenu-item__link">Icons</a>
+          </li>
+          <li class="mobile-submenu-item">
+            <a href="/demo/typography/" class="mobile-submenu-item__link">Typography</a>
+          </li>
+        </ul>
+      </li>
+      <li class="mobile-nav-item">
+        <a class="mobile-nav-item__link">Layout demo</a>
+        <ul class="mobile-nav-submenu-list dropdown-wrapper">
+          <li class="mobile-submenu-item">
+            <a href="/demo/bands/" class="mobile-submenu-item__link">Bands</a>
+          </li>
+          <li class="mobile-submenu-item">
+            <a href="/demo/grid/" class="mobile-submenu-item__link">Grid</a>
+          </li>
+          <li class="mobile-submenu-item">
+            <a href="/demo/footer/" class="mobile-submenu-item__link">Footer</a>
+          </li>
+        </ul>
+      </li>
+      <li class="mobile-nav-item">
+        <a class="mobile-nav-item__link">Components</a>
+        <ul class="mobile-nav-submenu-list dropdown-wrapper">
+          <li class="mobile-submenu-item">
+            <a href="/demo/" class="mobile-submenu-item__link">Overview</a>
+          </li>
+          <li class="mobile-submenu-item">
+            <a href="/demo/buttons/" class="mobile-submenu-item__link">Buttons</a>
+          </li>
+          <li class="mobile-submenu-item">
+            <a href="/demo/form/" class="mobile-submenu-item__link">Form</a>
+          </li>
+          <li class="mobile-submenu-item">
+            <a href="/demo/tiles/" class="mobile-submenu-item__link">Tiles</a>
+          </li>
+          <li class="mobile-submenu-item">
+            <a href="/demo/cards/" class="mobile-submenu-item__link">Cards</a>
+          </li>
+          <li class="mobile-submenu-item">
+            <a href="/demo/lists/" class="mobile-submenu-item__link">Lists</a>
+          </li>
+          <li class="mobile-submenu-item">
+            <a href="/demo/quote/" class="mobile-submenu-item__link">Quote</a>
+          </li>
+          <li class="mobile-submenu-item">
+            <a href="/demo/sidebar/" class="mobile-submenu-item__link">Sidebar</a>
+          </li>
+          <li class="mobile-submenu-item">
+            <a href="/demo/videos/" class="mobile-submenu-item__link">Videos</a>
+          </li>
+          <li class="mobile-submenu-item">
+            <a href="/demo/modal/" class="mobile-submenu-item__link">Modal</a>
+          </li>
+        </ul>
+      </li>
+    </ul>
+    <ul class="system-nav-list">
+      <li class="mobile-nav-item">
+        <a class="mobile-nav-item__link">System nav test</a>
+        <ul class="mobile-nav-submenu-list dropdown-wrapper">
+          <li class="mobile-submenu-item">
+            <a class="mobile-submenu-item__link">Test link 1</a>
+          </li>
+          <li class="mobile-submenu-item">
+            <a class="mobile-submenu-item__link">Test link 2</a>
+          </li>
+        </ul>
+      </li>
+      <li class="mobile-nav-item">
+        <a class="mobile-nav-item__link">Contact Us</a>
+      </li>
+    </ul>
+  </nav>
+
+  <main>
+    <section class="band">
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <h1 class="heading-1">Icons</h1>
+
+            <p>Our icon library has 3 distinct sizes: small (20px x 20px), medium (40px x 40px) and large (130px x
+              91px). These come in SVG format and are added as a background image. To use them, simply put a
+              <code>&lt;span&gt;</code> element with the following classes: <code>class="icon icon--[icon-name]"</code>.
+            </p>
+
+            <p>For example, this icon is produced by the following code:</p>
+
+            <span class="icon icon--calculator"></span>
+
+            <pre><code>&lt;span class="icon icon--calculator"&gt;&lt;/span&gt;</code></pre>
+          </div>
+        </div>
+
+        <div class="row mt-5">
+          <h2 class="heading-2 normal">Nav/System icons</h2>
+
+          <p>While the use of these are meant for navigation, these can be used anywhere without discrimination. Please
+            note that the icons are not perfectly aligned to the center for visual alignment purposes when used.</p>
+
+          <div class="col-12">
+            <span class="icon small icon--chevron-down"></span>
+            <span class="icon small icon--chevron-up"></span>
+            <span class="icon small icon--chevron-right"></span>
+            <span class="icon small icon--chevron-right-small"></span>
+            <span class="icon small icon--chevron-up-medium"></span>
+            <span class="icon small icon--chevron-down-large"></span>
+            <span class="icon small icon--chevron-up-large"></span>
+            <span class="icon small icon--cta-arrow-right"></span>
+            <span class="icon small icon--cta-arrow-left"></span>
+            <span class="icon small icon--pagination-left"></span>
+            <span class="icon small icon--pagination-right"></span>
+            <span class="icon small icon--pagination-dot-outline"></span>
+            <span class="icon small icon--pagination-dot-full"></span>
+            <span class="icon small icon--magnifier"></span>
+            <span class="icon small icon--user"></span>
+            <span class="icon small icon--stock-up"></span>
+            <span class="icon small icon--stock-down"></span>
+            <span class="icon small icon--nav-hamburger"></span>
+            <span class="icon small icon--x-close"></span>
+            <span class="icon small icon--play-small"></span>
+          </div>
+
+          <div class="col-12 mt-3">
+            <p>Here is the code to produce all of these icons in the same order:</p>
+
+            <pre><code>
+&lt;span class="icon small icon--chevron-down"&gt;&lt;/span&gt;
+&lt;span class="icon small icon--chevron-up"&gt;&lt;/span&gt;
+&lt;span class="icon small icon--chevron-right"&gt;&lt;/span&gt;
+&lt;span class="icon small icon--chevron-right-small"&gt;&lt;/span&gt;
+&lt;span class="icon small icon--chevron-up-medium"&gt;&lt;/span&gt;
+&lt;span class="icon small icon--chevron-down-large"&gt;&lt;/span&gt;
+&lt;span class="icon small icon--chevron-up-large"&gt;&lt;/span&gt;
+&lt;span class="icon small icon--cta-arrow-right"&gt;&lt;/span&gt;
+&lt;span class="icon small icon--cta-arrow-left"&gt;&lt;/span&gt;
+&lt;span class="icon small icon--pagination-left"&gt;&lt;/span&gt;
+&lt;span class="icon small icon--pagination-right"&gt;&lt;/span&gt;
+&lt;span class="icon small icon--pagination-dot-outline"&gt;&lt;/span&gt;
+&lt;span class="icon small icon--pagination-dot-full"&gt;&lt;/span&gt;
+&lt;span class="icon small icon--magnifier"&gt;&lt;/span&gt;
+&lt;span class="icon small icon--user"&gt;&lt;/span&gt;
+&lt;span class="icon small icon--stock-up"&gt;&lt;/span&gt;
+&lt;span class="icon small icon--stock-down"&gt;&lt;/span&gt;
+&lt;span class="icon small icon--nav-hamburger"&gt;&lt;/span&gt;
+&lt;span class="icon small icon--x-close"&gt;&lt;/span&gt;
+&lt;span class="icon small icon--play-small"&gt;&lt;/span&gt;
+            </code></pre>
+          </div>
+        </div>
+
+        <div class="row mt-5">
+          <h2 class="heading-2 normal">Medium icons</h2>
+
+          <p>These are commonly used for buttons or as icons for lists, yet again, the use is not limited to that
+            single purpose.</p>
+
+          <div class="col-12">
+            <span class="icon icon--calculator"></span>
+            <span class="icon icon--get-a-quote"></span>
+            <span class="icon icon--office-pin"></span>
+            <span class="icon icon--magnifier-pin"></span>
+            <span class="icon icon--circle-pin"></span>
+            <span class="icon icon--pin"></span>
+            <span class="icon icon--residential"></span>
+            <span class="icon icon--commercial"></span>
+            <span class="icon icon--agency"></span>
+            <span class="icon icon--homebuilder"></span>
+            <span class="icon icon--vacation"></span>
+            <span class="icon icon--exchange"></span>
+            <span class="icon icon--circle-check"></span>
+            <span class="icon icon--wealth-management"></span>
+            <span class="icon icon--trust-services"></span>
+            <span class="icon icon--banking-services"></span>
+            <span class="icon icon--quote"></span>
+            <span class="icon icon--briefcase"></span>
+            <span class="icon icon--calendar"></span>
+            <span class="icon icon--protection"></span>
+            <span class="icon icon--safe"></span>
+            <span class="icon icon--piggy-bank"></span>
+            <span class="icon icon--home-cost"></span>
+            <span class="icon icon--money"></span>
+            <span class="icon icon--umbrella"></span>
+            <span class="icon icon--mobile"></span>
+            <span class="icon icon--play"></span>
+          </div>
+
+          <div class="col-12 mt-3">
+            <p>Here is the code to produce all of these icons in the same order:</p>
+
+            <pre><code>
+&lt;span class="icon icon--calculator"&gt;&lt;/span&gt;
+&lt;span class="icon icon--get-a-quote"&gt;&lt;/span&gt;
+&lt;span class="icon icon--office-pin"&gt;&lt;/span&gt;
+&lt;span class="icon icon--magnifier-pin"&gt;&lt;/span&gt;
+&lt;span class="icon icon--circle-pin"&gt;&lt;/span&gt;
+&lt;span class="icon icon--pin"&gt;&lt;/span&gt;
+&lt;span class="icon icon--residential"&gt;&lt;/span&gt;
+&lt;span class="icon icon--commercial"&gt;&lt;/span&gt;
+&lt;span class="icon icon--agency"&gt;&lt;/span&gt;
+&lt;span class="icon icon--homebuilder"&gt;&lt;/span&gt;
+&lt;span class="icon icon--vacation"&gt;&lt;/span&gt;
+&lt;span class="icon icon--exchange"&gt;&lt;/span&gt;
+&lt;span class="icon icon--circle-check"&gt;&lt;/span&gt;
+&lt;span class="icon icon--wealth-management"&gt;&lt;/span&gt;
+&lt;span class="icon icon--trust-services"&gt;&lt;/span&gt;
+&lt;span class="icon icon--banking-services"&gt;&lt;/span&gt;
+&lt;span class="icon icon--quote"&gt;&lt;/span&gt;
+&lt;span class="icon icon--briefcase"&gt;&lt;/span&gt;
+&lt;span class="icon icon--calendar"&gt;&lt;/span&gt;
+&lt;span class="icon icon--protection"&gt;&lt;/span&gt;
+&lt;span class="icon icon--safe"&gt;&lt;/span&gt;
+&lt;span class="icon icon--piggy-bank"&gt;&lt;/span&gt;
+&lt;span class="icon icon--home-cost"&gt;&lt;/span&gt;
+&lt;span class="icon icon--money"&gt;&lt;/span&gt;
+&lt;span class="icon icon--umbrella"&gt;&lt;/span&gt;
+&lt;span class="icon icon--mobile"&gt;&lt;/span&gt;
+&lt;span class="icon icon--play"&gt;&lt;/span&gt;
+            </code></pre>
+          </div>
+        </div>
+
+        <div class="row mt-5">
+          <h2 class="heading-2 normal">Large icons</h2>
+
+          <p>These are commonly used on tiles and navigation elements on the body of the page, but can be used for other
+            purposes as all other icons on the page where applicable.</p>
+
+          <div class="col-12">
+            <span class="icon large icon--home-office"></span>
+            <span class="icon large icon--home-office-pin"></span>
+            <span class="icon large icon--start-a-claim"></span>
+            <span class="icon large icon--get-help"></span>
+            <span class="icon large icon--find-an-office"></span>
+            <span class="icon large icon--title-insurance"></span>
+            <span class="icon large icon--lender-services"></span>
+            <span class="icon large icon--home-warranty"></span>
+            <span class="icon large icon--real-estate-data"></span>
+            <span class="icon large icon--trust-individuals"></span>
+            <span class="icon large icon--trust-institutions"></span>
+            <span class="icon large icon--trust-professionals"></span>
+            <span class="icon large icon--trust-banking"></span>
+            <span class="icon large icon--trust-automated-payments"></span>
+            <span class="icon large icon--trust-automated-savings"></span>
+            <span class="icon large icon--trust-check-services"></span>
+            <span class="icon large icon--trust-reconciliation-services"></span>
+            <span class="icon large icon--trust-funds-transfer"></span>
+            <span class="icon large icon--trust-secure-access"></span>
+            <span class="icon large icon--trust-positive-pay"></span>
+            <span class="icon large icon--trust-operating-accounts"></span>
+            <span class="icon large icon--trust-escrow-accounts"></span>
+            <span class="icon large icon--trust-online-treasury"></span>
+            <span class="icon large icon--trust-remote-desposit"></span>
+            <span class="icon large icon--play-large"></span>
+          </div>
+
+          <div class="col-12 mt-3">
+            <p>Here is the code to produce all of these icons in the same order:</p>
+
+            <pre><code>
+&lt;span class="icon large icon--home-office"&gt;&lt;/span&gt;
+&lt;span class="icon large icon--home-office-pin"&gt;&lt;/span&gt;
+&lt;span class="icon large icon--start-a-claim"&gt;&lt;/span&gt;
+&lt;span class="icon large icon--get-help"&gt;&lt;/span&gt;
+&lt;span class="icon large icon--find-an-office"&gt;&lt;/span&gt;
+&lt;span class="icon large icon--title-insurance"&gt;&lt;/span&gt;
+&lt;span class="icon large icon--lender-services"&gt;&lt;/span&gt;
+&lt;span class="icon large icon--home-warranty"&gt;&lt;/span&gt;
+&lt;span class="icon large icon--real-estate-data"&gt;&lt;/span&gt;
+&lt;span class="icon large icon--trust-individuals"&gt;&lt;/span&gt;
+&lt;span class="icon large icon--trust-institutions"&gt;&lt;/span&gt;
+&lt;span class="icon large icon--trust-professionals"&gt;&lt;/span&gt;
+&lt;span class="icon large icon--trust-banking"&gt;&lt;/span&gt;
+&lt;span class="icon large icon--trust-automated-payments"&gt;&lt;/span&gt;
+&lt;span class="icon large icon--trust-automated-savings"&gt;&lt;/span&gt;
+&lt;span class="icon large icon--trust-check-services"&gt;&lt;/span&gt;
+&lt;span class="icon large icon--trust-reconciliation-services"&gt;&lt;/span&gt;
+&lt;span class="icon large icon--trust-funds-transfer"&gt;&lt;/span&gt;
+&lt;span class="icon large icon--trust-secure-access"&gt;&lt;/span&gt;
+&lt;span class="icon large icon--trust-positive-pay"&gt;&lt;/span&gt;
+&lt;span class="icon large icon--trust-operating-accounts"&gt;&lt;/span&gt;
+&lt;span class="icon large icon--trust-escrow-accounts"&gt;&lt;/span&gt;
+&lt;span class="icon large icon--trust-online-treasury"&gt;&lt;/span&gt;
+&lt;span class="icon large icon--trust-remote-desposit"&gt;&lt;/span&gt;
+&lt;span class="icon large icon--play-large"&gt;&lt;/span&gt;
+            </code></pre>
+          </div>
+        </div>
+
+        <div class="row mt-5">
+          <h2 class="heading-2 normal">Custom colored icons</h2>
+
+          <div class="col-12">
+            <p>To get custom colors on the icons you must use our SASS library and call our <code>get-icon()</code>
+              function from our icon library and pass the name of the icon you would like to get and pass on up to two
+              colors if the icon supports it. If id does not, it will only use the first color and the second one will
+              be ommited. If you pass only one color, it will only use one color for the icon.</p>
+
+            <p>For example, we can add a class called <code>custom-calculator</code> to the SASS of the page. To get the
+              custom colors, we just need to call the <code>get-icon</code> function on the
+              <code>background-image</code> property like this: <code>get-icon('calculator', #000, #fff)</code>.
+            </p>
+
+            <p>Here is a custom calculator that supports 2 colors with the code needed to produce it:</p>
+
+            <p class="mt-2 mb-0"><i>// index.html</i></p>
+            <pre><code>
+&lt;span class="icon custom-calculator"&gt;&lt;/span&gt;
+            </code></pre>
+
+            <p class="mt-2 mb-0"><i>// style.scss</i></p>
+            <pre><code>
+@use '@firstam_enterprise_web/fawc/src/stylesheets/base/svg-icons' as *;
+
+.custom-calculator {
+  background-image: get-icon('calculator', #141d3a, #4eade1);
+}
+            </code></pre>
+
+            <span class="icon custom-calculator"></span>
+          </div>
+        </div>
+
+        <div class="row mt-5">
+          <h2 class="heading-2 normal">Social Icons</h2>
+
+          <div class="col-12">
+            <p>These are the social icons that we have available. They are all the same size and can be used in the same
+              way as the system/small icons on the page as you see fit. Though, these come with their own colors and
+              cannot be customized. If needed, other copies of the icons would be added with just 2 colors (black and
+              white) that can be swapped. For now these are the only social icons in the design system.</p>
+
+            <span class="icon small icon--linkedin"></span>
+            <span class="icon small icon--facebook"></span>
+            <span class="icon small icon--youtube"></span>
+            <span class="icon small icon--google"></span>
+            <span class="icon small icon--x"></span>
+          </div>
+
+          <div class="col-12 mt-3">
+            <p>Here is the code to produce all of these icons in the same order:</p>
+
+            <pre><code>
+&lt;span class="icon small icon--linkedin"&gt;&lt;/span&gt;
+&lt;span class="icon small icon--facebook"&gt;&lt;/span&gt;
+&lt;span class="icon small icon--youtube"&gt;&lt;/span&gt;
+&lt;span class="icon small icon--google"&gt;&lt;/span&gt;
+&lt;span class="icon small icon--x"&gt;&lt;/span&gt;
+            </code></pre>
+          </div>
+        </div>
+
+        <div class="row mt-5">
+          <h2 class="heading-2 normal">Custom external icons</h2>
+
+          <div class="col-12">
+            <p>If you want to include new SVG icons that are not in Core but rather a new icon needed for a new site,
+              you can use the <code>get-icon()</code> function and provide as the last argument OR specify the target
+              argument a SASS map containing the SVG code of your custom icon (this is, of course, after importing the
+              core.scss file with the <code>@use</code> rule at the top of your file to make sure the funciton is
+              avaiable in your scope). If you want to be able to change the colors, make sure to swap the color values
+              to <code>color1</code> and <code>color2</code> (e.g. <code>stroke="color1"</code> or
+              <code>fill="color1"</code>). Here is an example of a SASS map whichcontains the code of a custom icon:
+            </p>
+
+            <pre><code>
+$custom-icons: (
+  residential-custom:
+    '&lt;svg xmlns="http://www.w3.org/2000/svg" width="81" height="64" fill="none"&gt;&lt;path stroke="color1" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.3" d="M40.502 61.94h-7.4v-9.4c0-2 1.6-3.8 3.6-3.8s3.6 1.6 3.6 3.8v9.4h.2ZM40.502 39.34h-7.4v-9.4c0-2 1.6-3.8 3.6-3.8s3.6 1.6 3.6 3.8v9.4h.2ZM64.3 61.94h-7.4v-9.4c0-2 1.6-3.8 3.6-3.8s3.6 1.6 3.6 3.8v9.4h.2ZM64.3 39.34h-7.4v-9.4c0-2 1.6-3.8 3.6-3.8s3.6 1.6 3.6 3.8v9.4h.2ZM11.102 46.94v15M20.3 44.14c0 5.2-4.2 9.4-9.2 9.4-5 0-9.2-4.2-9.2-9.4s4.2-14 9.2-14c5 0 9.2 8.8 9.2 14ZM79.101 20.74l-14.6-18.8m0 0h-29.4l-14.6 18.8h31.2l12.8-18.8ZM47.9 26.34v35.6M27.7 26.34v35.6"/&gt;&lt;path stroke="color2" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.3" d="M3.7 61.94h69.8v-41.2"/&gt;&lt;/svg&gt;',
+);
+            </code></pre>
+
+            <p class="mt-3">Notice how the color values were replaced with <code>color1</code> and <code>color2</code>.
+              This is so that you can change the colors of the icon with the function as well as needed. The other piece
+              of code you need in order to have this icon available as if it were part of the icon library is to create
+              your custom class that gets this icon. Please notice the order of arguments passed to the function.</p>
+
+            <pre><code>
+.icon--residential-custom {
+  background-image: get-icon('residential-custom', $icons-map: $custom-icons);
+}
+// Or
+.icon--residential-custom {
+  background-image: get-icon('residential-custom', $vivid, $welcome, $custom-icons);
+}
+            </code></pre>
+
+            <p class="mt-3">After the above code is in your site specific SASS file, you can now call your custom icon
+              class like this:</p>
+
+            <pre><code>
+&lt;span class="icon large icon--residential-custom"&gt;&lt;/span&gt;
+            </code></pre>
+
+            <p class="mt-3">And here is the result:</p>
+
+            <span class="icon large icon--residential-custom"></span>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <!-- Breadcrumbs -->
+      <div class="row">
+        <div class="col-12">
+          <nav aria-label="Breadcrumb">
+            <ol class="breadcrumb">
+            </ol>
+          </nav>
+        </div>
+      </div>
+
+      <div class="row footer__top-nav">
+        <!-- Footer Links -->
+        <div class="footer__links">
+          <span class="footer__title">Base</span>
+          <div class="footer__links-drawer">
+            <ul>
+              <li><a class="footer__link-secondary" href="/demo/colors/">Colors</a></li>
+              <li><a class="footer__link-secondary" href="/demo/icons/">Icons</a></li>
+              <li><a class="footer__link-secondary" href="/demo/typography/">Typography</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="footer__links">
+          <span class="footer__title">Layout demo</span>
+          <div class="footer__links-drawer">
+            <ul>
+              <li><a class="footer__link-secondary" href="/demo/bands/">Bands</a></li>
+              <li><a class="footer__link-secondary" href="/demo/grid/">Grid</a></li>
+              <li><a class="footer__link-secondary" href="/demo/footer/">Footer</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="footer__links">
+          <span class="footer__title">Components</span>
+          <div class="footer__links-drawer">
+            <ul>
+              <li><a class="footer__link-secondary" href="/demo/buttons/">Buttons</a></li>
+              <li><a class="footer__link-secondary" href="/demo/form/">Form</a></li>
+              <li><a class="footer__link-secondary" href="/demo/tiles/">Tiles</a></li>
+              <li><a class="footer__link-secondary" href="/demo/cards/">Cards</a></li>
+            </ul>
+            <hr class="footer__list-separator" />
+            <ul>
+              <li><a class="footer__link-secondary" href="/demo/lists/">Lists</a></li>
+              <li><a class="footer__link-secondary" href="/demo/quote/">Quote</a></li>
+              <li><a class="footer__link-secondary" href="/demo/sidebar/">Sidebar</a></li>
+              <li><a class="footer__link-secondary" href="/demo/videos/">Videos</a></li>
+              <li><a class="footer__link-secondary" href="/demo/modal/">Modal</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="footer__links d-lg-none">
+          <span class="footer__title">Visible only on mobile</span>
+          <div class="footer__links-drawer">
+            <ul>
+              <li><a class="footer__link-secondary">Privacy Policy</a></li>
+              <li><a class="footer__link-secondary">Cookie Preferences</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="footer__links open">
+          <span class="footer__title">Connect</span>
+          <div class="footer__links-drawer">
+            <ul>
+              <li><a class="footer__link-secondary">Find an Office</a></li>
+              <li><a class="footer__link-secondary">Contact Us</a></li>
+            </ul>
+
+            <div class="footer__social-links">
+              <a class="icon small icon--linkedin" href="https://www.linkedin.com/company/first-american"
+                target="_blank" aria-label="LinkedIn"></a>
+              <a class="icon small icon--facebook" href="https://www.facebook.com/First.American.Financial"
+                target="_blank" aria-label="Facebook"></a>
+              <a class="icon small icon--youtube" href="https://www.youtube.com/user/FirstAmTV" target="_blank"
+                aria-label="YouTube"></a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-12">
+          <hr class="footer__row-separator mb-lg-4 mb-3" />
+        </div>
+
+        <div class="col-12 col-lg-3 col-xl-4">
+          <form id="footer-search" class="footer-search">
+            <div class="input-group">
+              <input type="text" name="footer-search-input" id="footer-search-input" class="search-input"
+                placeholder="Search by keywords" aria-label="Search" />
+              <button type="submit" id="mobile-search-btn" class="input-group-btn" aria-label="Search"></button>
+            </div>
+          </form>
+        </div>
+
+        <div class="col-12 col-lg-9 col-xl-8 mt-2 footer__legal-links">
+          <ul>
+            <li><a class="footer__link-primary">Contact Us</a></li>
+            <li><a class="footer__link-primary">Report Suspicious Activity</a></li>
+            <li><a class="footer__link-primary">Privacy Policy</a></li>
+            <li><a class="footer__link-primary">Cookie Preferences</a></li>
+            <li><a class="footer__link-primary">Accessibility</a></li>
+            <li><a class="footer__link-primary">Terms of Use</a></li>
+          </ul>
+        </div>
+
+        <div class="col-12">
+          <hr class="footer__row-separator mt-lg-4 mt-3" />
+        </div>
+      </div>
+
+      <!-- Footer Disclaimer -->
+      <div class="row">
+        <div class="col-12 col-md-8">
+          <p class="footer__disclaimer">&copy;<span class="copyright__year">2023</span> First American Financial
+            Corporation and/or its affiliates. All rights reserved.</p>
+
+          <p class="footer__disclaimer">First American Title Insurance Company makes no express or implied warranty
+            respecting the information presented and assumes no responsibility for errors or omissions.</p>
+
+          <p class="footer__disclaimer">First American, the eagle logo, firstam.com, and First American Title are
+            registered trademarks or trademarks of First American Financial Corporation and/or its affiliates.</p>
+
+          <p class="footer__disclaimer">FORTUNE, FORTUNE 100 Best Companies to Work For, FORTUNE Best Workplaces for
+            Women, and FORTUNE Best Workplaces in Financial Services & Insurance are registered trademarks of FORTUNE
+            Media IP Limited. Other products and services are or may be trademarks of their respective owners.
+            References to third parties and their products and services are not intended to imply affiliation with or
+            sponsorship of or by First American Financial Corporation and/or its affiliates.</p>
+
+          <a class="btn btn--do-not-sell mt-1" href="javascript:window.evidon.notice.showOptions();"
+            aria-label="Do Not Sell or Share My Personal Information">Do Not Sell or Share My Personal Information</a>
+        </div>
+        <div class="col-12 col-md-4 back-to-top-container">
+          <button type="button" class="btn btn--back-to-top">Back to top</button>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ------------------------ JQuery ----------------------- -->
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+    integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+
+  <!-- ------------------ Demo site scripts ------------------ -->
+  <script src="../_assets/demo.js" type="module"></script>
+</body>
+
+</html>

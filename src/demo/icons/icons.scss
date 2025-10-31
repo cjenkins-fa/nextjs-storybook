@@ -1,0 +1,13 @@
+@use '../../stylesheets/base/svg-icons' as *;
+
+$foundation: #141d3a;
+$vivid: #4eade1;
+
+.icon {
+  border: 1px solid #999;
+  padding: 10px;
+}
+
+.custom-calculator {
+  background-image: get-icon('calculator', $foundation, $vivid);
+}

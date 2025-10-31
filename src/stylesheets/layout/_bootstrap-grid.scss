@@ -1,0 +1,18 @@
+@import './../base/bs-grid-variables';
+@import 'bootstrap/scss/bootstrap-grid';
+
+@include media-breakpoint-down(md) {
+  .container,
+  .container-fluid,
+  .container-xxl,
+  .container-xl,
+  .container-lg,
+  .container-md,
+  .container-sm,
+  .container-xs {
+    --bs-gutter-x: 20px;
+  }
+  .row {
+    --bs-gutter-x: 20px;
+  }
+}

@@ -1,0 +1,322 @@
+// Imports ------------------------------
+@use './fonts';
+@use './colors' as *;
+
+// Typography ------------------------------
+//Global Ultility Classes ------------------------------
+:root {
+  --font-primary: 'FA Brandface', Arial, sans-serif;
+  --text-base-size: 10px;
+  --text-scale-ratio: 1.2;
+
+  // Line Heights
+  --line-height-base: 1.5;  
+  --line-height-link-text: 1.5;
+  --line-height-heading: 1.2;
+  --line-height-label: 1;
+
+  // Font Weights
+  --fw-300: 300;
+  --fw-350: 350;
+  --fw-400: 400;
+  --fw-500: 500;
+  --fw-600: 600;
+  --fw-700: 700;
+  --fw-900: 900;
+  --fw-450: 450;
+
+  // Font Sizes
+
+  // Display Font Sizes
+  --font-size-display-lg: 6.4rem;
+  --font-size-display-md: 5.6rem;
+  --font-size-display-sm: 4.8rem;
+
+  // Heading Font Sizes
+  --font-size-heading-xxl: 4.0rem;
+  --font-size-heading-xl: 3.6rem;
+  --font-size-heading-lg: 3.2rem;
+  --font-size-heading-md: 2.8rem;
+  --font-size-heading-sm: 2.4rem;
+  --font-size-heading-xs: 2.0rem;
+
+  // Paragraph Font Sizes
+  --font-size-paragraph-xl: 2.0rem;
+  --font-size-paragraph-lg: 1.8rem;
+  --font-size-paragraph-md: 1.6rem;
+  --font-size-paragraph-sm: 1.4rem;
+  --font-size-paragraph-xs: 1.2rem;
+
+  // Utility Font Sizes
+  --font-size-label-lg: 1.8rem;
+  --font-size-label-md: 1.6rem;
+  --font-size-label-sm: 1.4rem;
+  --font-size-link: 1.6rem;
+  --font-size-caption: 1.0rem;
+}
+
+
+
+body {
+  font-size: var(--text-base-size);
+  font-family: var(--font-primary);
+  color: $charcoal;
+}
+
+// Tag Default Overrides ------------------------------
+a,
+a:visited {
+  cursor: pointer;
+  color: $foundation;
+
+  &:hover,
+  &:focus {
+    color: $welcome;
+  }
+}
+
+input,
+textarea,
+button {
+  font-family: inherit;
+}
+
+p,
+h1,
+h2 {
+  margin-bottom: 30px;
+}
+
+h3,
+h4,
+h5,
+h6 {
+  margin-bottom: 15px;
+}
+
+p,
+ol,
+ul,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-top: 0px;
+
+  &:last-child {
+    margin-bottom: 0px;
+  }
+}
+
+// Font Style ------------------------------
+
+.light {
+  font-weight: var(--fw-300) !important;
+}
+
+.normal {
+  font-weight: var(--fw-350) !important;
+}
+
+.medium {
+  font-weight: var(--fw-400) !important;
+}
+
+.bold {
+  font-weight: var(--fw-700) !important;
+}
+
+.extra-bold {
+  font-weight: var(--fw-900) !important;
+}
+
+.italic {
+  font-style: italic;
+}
+
+.underline {
+  text-decoration: underline;
+}
+
+.blue,
+.blue:visited {
+  color: $legacy !important;
+}
+
+.white {
+  color: #fff !important;
+}
+
+.code--single-line {
+  color: $lil-red;
+}
+
+// Hides the "(opens in a new tab)" link disclaimer
+.sr-only {
+  &:not(:focus) {
+    &:not(:active) {
+      clip: rect(0 0 0 0);
+      clip-path: inset(50%);
+      height: 1px;
+      overflow: hidden;
+      position: absolute;
+      white-space: nowrap;
+      width: 1px;
+    }
+  }
+}
+
+// Keep words together / prevent loanly words
+.nowrap {
+  white-space: nowrap;
+}
+
+// Common Typography Styles ------------------------------
+
+.display__heading-1,
+.display__heading-2,
+.display__heading-3,
+.heading-1,
+.heading-2,
+.heading-3,
+.heading-4,
+.heading-5,
+.heading-6 {
+  font-weight: var(--fw-700);
+  line-height: var(--line-height-heading);
+}
+
+.paragraph-1,
+.paragraph-2,
+.paragraph-3,
+.paragraph-4,
+.paragraph-5 {
+  font-weight: var(--fw-350);
+  line-height: var(--line-height-base);  
+}
+
+.label-lg,
+.label-md,
+.label-sm {
+  font-weight: var(--fw-450);
+  line-height: var(--line-height-label);
+}
+
+.link-text {
+  font-weight: var(--fw-700);
+  line-height: var(--line-height-link-text);
+  text-decoration: underline;
+}
+
+.caption {
+  font-weight: var(--fw-400);
+  line-height: var(--line-height-base);
+}
+
+// Display Type Text ------------------------------
+.display__heading-1 {
+  font-size: var(--font-size-display-lg);
+}
+
+.display__heading-2 {
+  font-size: var(--font-size-display-md);
+}
+
+.display__heading-3 {
+  font-size: var(--font-size-display-sm);
+}
+
+// Headings ------------------------------
+h1,
+.heading-1 {
+  font-size: var(--font-size-heading-xxl);
+}
+
+h2,
+.heading-2 {
+  font-size: var(--font-size-heading-xl);
+}
+
+h3,
+.heading-3 {
+  font-size: var(--font-size-heading-lg);
+}
+
+h4,
+.heading-4 {
+  font-size: var(--font-size-heading-md);
+}
+
+h5,
+.heading-5 {
+  font-size: var(--font-size-heading-sm);
+}
+
+h6,
+.heading-6 {
+  font-size: var(--font-size-heading-xs);
+}
+
+// Paragraphs ------------------------------
+.paragraph-1 {
+  font-size: var(--font-size-paragraph-xl);
+}
+
+.paragraph-2 {
+  font-size: var(--font-size-paragraph-lg);
+}
+
+.paragraph-3 {
+  font-size: var(--font-size-paragraph-md);
+}
+
+.paragraph-4 {
+  font-size: var(--font-size-paragraph-sm);
+}
+
+.paragraph-5 {
+  font-size: var(--font-size-paragraph-xs);
+}
+
+// Utilitiess ----------------------------------------------
+.label-lg {
+  font-size: var(--font-size-label-lg);
+}
+
+.label-md {
+  font-size: var(--font-size-label-md);
+}
+
+.label-sm {
+  font-size: var(--font-size-label-sm);
+}
+
+.link-text {
+  font-size: var(--font-size-link);
+}
+
+.caption {
+  font-size: var(--font-size-caption);
+}
+
+// Superscript
+sup {
+  font-size: var(--font-size-caption);
+}
+
+// Text alignment utilities
+.text-left {
+  text-align: left !important;
+}
+.text-center {
+  text-align: center !important;
+}
+.text-right {
+  text-align: right !important;
+}
+.text-justify {
+  text-align: justify !important;
+}
+/* End Typography */

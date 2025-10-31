@@ -1,0 +1,215 @@
+// Imports ------------------------------
+@use './fonts';
+@use './colors' as *;
+
+// Typography ------------------------------
+//Global Ultility Classes ------------------------------
+:root {
+  --font-primary: 'FA Brandface', Arial, sans-serif;
+  --text-base-size: 1em;
+  --text-scale-ratio: 1.2;
+}
+
+body {
+  font-size: var(--text-base-size);
+  font-family: var(--font-primary);
+  color: $charcoal;
+}
+
+// Tag Default Overrides ------------------------------
+a,
+a:visited {
+  cursor: pointer;
+  color: $foundation;
+
+  &:hover,
+  &:focus {
+    color: $welcome;
+  }
+}
+
+input,
+textarea,
+button {
+  font-family: inherit;
+}
+
+p,
+h1,
+h2 {
+  margin-bottom: 30px;
+}
+
+h3,
+h4,
+h5,
+h6 {
+  margin-bottom: 15px;
+}
+
+p,
+ol,
+ul,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-top: 0px;
+
+  &:last-child {
+    margin-bottom: 0px;
+  }
+}
+
+// Mixes ------------------------------
+
+.light {
+  font-weight: 100;
+}
+
+.normal {
+  font-weight: 400;
+}
+
+.bold {
+  font-weight: 700;
+}
+
+.italic {
+  font-style: italic;
+}
+
+.underline {
+  text-decoration: underline;
+}
+
+.blue,
+.blue:visited {
+  color: $legacy !important;
+}
+
+.white {
+  color: #fff !important;
+}
+
+.code--single-line {
+  color: $lil-red;
+}
+
+// Hides the "(opens in a new tab)" link disclaimer
+.sr-only {
+  &:not(:focus) {
+    &:not(:active) {
+      clip: rect(0 0 0 0);
+      clip-path: inset(50%);
+      height: 1px;
+      overflow: hidden;
+      position: absolute;
+      white-space: nowrap;
+      width: 1px;
+    }
+  }
+}
+
+// Keep words together / prevent loanly words
+.nowrap {
+  white-space: nowrap;
+}
+
+// Display Type Text ------------------------------
+.display__heading-1 {
+  color: $charcoal;
+  font-size: 6.8125rem;
+  line-height: 7.1875rem;
+  letter-spacing: -0.2725rem;
+}
+
+.display__heading-2 {
+  color: $charcoal;
+  font-size: 5.125rem;
+  line-height: 5.6875rem;
+  letter-spacing: -0.205rem;
+}
+
+// Headings ------------------------------
+.heading-1 {
+  color: $charcoal;
+  font-size: 2.5rem;
+  line-height: 2.75rem;
+  letter-spacing: -0.05rem;
+}
+
+.heading-2 {
+  color: $charcoal;
+  font-size: 2.0625rem;
+  line-height: 2.4375rem;
+}
+
+.heading-3 {
+  color: $charcoal;
+  font-size: 1.75rem;
+  line-height: 2.0625rem;
+}
+
+.heading-4 {
+  color: $charcoal;
+  font-size: 1.5rem;
+  line-height: 1.875rem;
+}
+
+.heading-5 {
+  color: $charcoal;
+  font-size: 1.3125rem;
+  line-height: 1.625rem;
+}
+
+.heading-6 {
+  color: $charcoal;
+  font-size: 1.125rem;
+  line-height: 1.4375rem;
+}
+
+// Paragraphs ------------------------------
+.paragraph-1 {
+  color: $charcoal;
+  font-size: 1.3125rem;
+  line-height: 1.625rem;
+}
+
+.paragraph-2 {
+  color: $charcoal;
+  font-size: 1.125rem;
+  line-height: 1.4375rem;
+}
+
+.paragraph-3 {
+  color: $charcoal;
+  font-size: 0.9375rem;
+  line-height: 1.1875rem;
+}
+
+// Captions ----------------------------------------------
+.caption {
+  color: $charcoal;
+  font-size: 0.75rem;
+  line-height: 0.9375rem;
+}
+
+// Superscript
+sup {
+  color: $charcoal;
+  font-size: 0.75rem;
+  line-height: unset;
+}
+
+// Pseudo Elements ------------------------------
+.vertical--bottom-align,
+.vertiical--center-align {
+  &p:last-child {
+    margin-bottom: 0;
+  }
+}
+
+/* End Typography */

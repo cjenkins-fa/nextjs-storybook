@@ -1,0 +1,236 @@
+@use '../base/colors' as *;
+@use '../base/mixins';
+
+.list__unordered--chevron {
+  list-style: none;
+  list-style-type: '\203A';
+  margin: 0 0 0 5px;
+  padding: 0;
+
+  .list__element {
+    margin-bottom: 10px;
+    padding-left: 10px;
+    color: $legacy;
+    font-size: 1.125rem;
+    line-height: 1.4375rem;
+    font-weight: 700;
+  }
+
+  li::marker {
+    font-size: 1.125rem;
+    line-height: 1.4375rem;
+    font-weight: 700;
+  }
+
+  &.red {
+    li::marker {
+      color: $lil-red;
+    }
+  }
+
+  &.green {
+    li::marker {
+      color: $stock-green;
+    }
+  }
+  &.white {
+    li,
+    li::marker,
+    p {
+      color: #fff;
+    }
+  }
+}
+
+.list__unordered--star {
+  list-style: none;
+  list-style-type: '\2605';
+  margin: 0 0 0 5px;
+  padding: 0;
+
+  .list__element {
+    margin-bottom: 10px;
+    padding-left: 10px;
+    color: $legacy;
+    font-size: 1.125rem;
+    line-height: 1.4375rem;
+    font-weight: 700;
+  }
+
+  li::marker {
+    font-size: 1.125rem;
+    line-height: 1.4375rem;
+    font-weight: 700;
+    @include mixins.marker__color($welcome);
+  }
+}
+
+.list__ordered--footnote {
+  list-style: none;
+  counter-reset: footnote-list-counter;
+  padding-left: 0;
+
+  li::before {
+    counter-increment: footnote-list-counter;
+    content: counter(footnote-list-counter) ' -';
+    margin-right: 5px;
+    white-space: nowrap;
+  }
+
+  .list__element {
+    font-size: 8pt;
+    font-weight: 100;
+    line-height: 1.2;
+    margin-bottom: 5px;
+    display: flex;
+    flex-direction: row;
+
+    a {
+      color: var(--grey--shade-400);
+    }
+  }
+}
+
+.list__ordered-1 {
+  color: $charcoal;
+
+  li::marker {
+    font-weight: 700;
+  }
+
+  .list__element {
+    font-size: 1.3125rem;
+    line-height: 1.625rem;
+    margin-bottom: 15px;
+  }
+}
+
+.list__ordered-2 {
+  color: $charcoal;
+
+  li::marker {
+    font-weight: 700;
+  }
+
+  .list__element {
+    font-size: 1.125rem;
+    line-height: 1.4375rem;
+    margin-bottom: 15px;
+  }
+}
+
+.list__ordered-3 {
+  color: $charcoal;
+
+  li::marker {
+    font-weight: 700;
+  }
+
+  .list__element {
+    font-size: 0.9375rem;
+    line-height: 1.1875rem;
+    margin-bottom: 15px;
+  }
+}
+
+.list__ordered--coloured {
+  list-style: none;
+  counter-reset: coloured-list-counter;
+
+  .list__element {
+    display: flex;
+    flex-direction: row;
+    color: var(--grey--shade-400);
+    font-size: 1rem;
+    font-weight: 100;
+    line-height: 1.2rem;
+    margin-bottom: 30px;
+
+    .list__element-title {
+      font-size: 1.125rem;
+      font-weight: 700;
+    }
+
+    p {
+      margin: 0;
+    }
+  }
+
+  li::before {
+    counter-increment: coloured-list-counter;
+    content: counter(coloured-list-counter);
+    color: #fff;
+    width: 25px;
+    height: 25px;
+    padding: 0px 7px;
+    margin-right: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 15px;
+    font-size: 1.125rem;
+    line-height: 1.2rem;
+    font-weight: 700;
+    flex: 1;
+  }
+
+  li:nth-of-type(3n + 1)::before {
+    background-color: $gold;
+  }
+
+  li:nth-of-type(3n + 2)::before {
+    background-color: $lil-red;
+  }
+
+  li:nth-of-type(3n + 3)::before {
+    background-color: $legacy;
+  }
+}
+
+.list__ordered {
+  .list__element {
+    display: flex;
+    flex-direction: row;
+    color: var(--grey--shade-400);
+    font-size: 1rem;
+    font-weight: 100;
+    line-height: 1.2rem;
+    margin-bottom: 30px;
+
+    .list__element-title {
+      font-size: 1.125rem;
+      font-weight: 700;
+    }
+
+    p {
+      margin: 0;
+    }
+  }
+
+  li::before {
+    width: 25px;
+    height: 25px;
+    padding: 0px 7px;
+    margin-right: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 15px;
+    font-size: 1.125rem;
+    line-height: 1.2rem;
+    font-weight: 700;
+    flex: 1;
+  }
+
+  li:nth-of-type(3n + 1)::before {
+    background-color: $gold;
+  }
+
+  li:nth-of-type(3n + 2)::before {
+    background-color: $lil-red;
+  }
+
+  li:nth-of-type(3n + 3)::before {
+    background-color: $legacy;
+  }
+}

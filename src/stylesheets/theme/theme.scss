@@ -1,0 +1,111 @@
+@use "sass:map";
+@use "sass:list";
+@use "./mixins" as mix;
+@use "./brands" as br;
+@use "./icons-bg";
+
+/* Auto-generate .bg-icon--{name} once, from whatever icons are declared in any brand */
+$__bg_icon_names: ();
+
+@each $brand-name, $brand-map in br.$brands {
+  $icons: map.get($brand-map, icons);
+  @if $icons != null {
+    @each $name in map.keys($icons) {
+      @if list.index($__bg_icon_names, $name) == null {
+        $__bg_icon_names: list.append($__bg_icon_names, $name, comma);
+      }
+    }
+  }
+}
+
+@each $name in $__bg_icon_names {
+  .bg-icon--#{$name} { --bg-icon-src: var(--icon-#{$name}); }
+}
+
+// ------------- Defaults (core light; auto-dark when data-mode not set)
+:root {
+  @include mix.brand-vars(map.get(br.$brands, core), light);
+}
+:root[data-mode="dark"] {
+  @include mix.brand-vars(map.get(br.$brands, core), dark);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-mode]) {
+    @include mix.brand-vars(map.get(br.$brands, core), dark);
+  }
+}
+
+// ------------- Per-brand overrides
+@each $brand-name, $brand-map in br.$brands {
+  [data-brand="#{$brand-name}"] {
+    @include mix.brand-vars($brand-map, light);
+
+    &[data-mode="dark"] {
+      @include mix.brand-vars($brand-map, dark);
+    }
+
+    &:not([data-mode]) {
+      @media (prefers-color-scheme: dark) {
+        @include mix.brand-vars($brand-map, dark);
+      }
+    }
+  }
+}
+
+/* ------------------------------------------------------------------
+   NEW: Per-section schemes
+   - Allows <section data-scheme="dark">…</section> to render a dark
+     surface while the rest of the page stays light (or vice versa).
+   - Scheme can be 'light' | 'dark' | 'auto'
+   - Works with brand inheritance or explicit per-section brand.
+------------------------------------------------------------------- */
+
+@each $brand-name, $brand-map in br.$brands {
+
+  /* 1) If the section explicitly sets the brand, you can use data-scheme.
+        (This is an alias to your existing [data-mode] but scoped locally.) */
+  [data-brand="#{$brand-name}"][data-scheme="light"] {
+    @include mix.brand-vars($brand-map, light);
+  }
+  [data-brand="#{$brand-name}"][data-scheme="dark"] {
+    @include mix.brand-vars($brand-map, dark);
+  }
+  [data-brand="#{$brand-name}"][data-scheme="auto"] {
+    @include mix.brand-vars($brand-map, light);
+    @media (prefers-color-scheme: dark) {
+      @include mix.brand-vars($brand-map, dark);
+    }
+  }
+
+  /* 2) Brand-inheriting sections: if a parent (root or wrapper) sets this
+        brand, a child with only data-scheme will adopt it automatically. */
+  :root[data-brand="#{$brand-name}"] [data-scheme="light"],
+  [data-brand="#{$brand-name}"] [data-scheme="light"] {
+    @include mix.brand-vars($brand-map, light);
+  }
+  :root[data-brand="#{$brand-name}"] [data-scheme="dark"],
+  [data-brand="#{$brand-name}"] [data-scheme="dark"] {
+    @include mix.brand-vars($brand-map, dark);
+  }
+  :root[data-brand="#{$brand-name}"] [data-scheme="auto"],
+  [data-brand="#{$brand-name}"] [data-scheme="auto"] {
+    @include mix.brand-vars($brand-map, light);
+    @media (prefers-color-scheme: dark) {
+      @include mix.brand-vars($brand-map, dark);
+    }
+  }
+}
+
+/* 3) Fallback when no brand is set anywhere (defaults to `core`). */
+:root:not([data-brand]) [data-scheme="light"] {
+  @include mix.brand-vars(map.get(br.$brands, core), light);
+}
+:root:not([data-brand]) [data-scheme="dark"] {
+  @include mix.brand-vars(map.get(br.$brands, core), dark);
+}
+:root:not([data-brand]) [data-scheme="auto"] {
+  @include mix.brand-vars(map.get(br.$brands, core), light);
+  @media (prefers-color-scheme: dark) {
+    @include mix.brand-vars(map.get(br.$brands, core), dark);
+  }
+}

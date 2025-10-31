@@ -1,0 +1,67 @@
+$brand: (
+  color: (
+    primary: #141d3a,
+    primary-contrast: #ffffff,
+    secondary: #0075C3,
+    secondary-contrast: #141d3a,
+    disabled: #bcbcbc,
+    //info: #38bdf8,
+    success: #126B40,
+    warning: #FFC107,
+    danger: #E62E1F,
+    background: #ffffff,
+    surface: #141d3a,
+    text: #2f2f2f,
+    //text-muted: #4b5563,
+    border: #e5e7eb,
+    link: #7c3aed
+  ),
+  modes: (
+    light: (
+        background: #ffff,
+        surface: #141d3a,
+        text: #ffffff,
+        //text-muted: #4b5563,
+        border: #e5e7eb,
+        link: #7c3aed
+    ),
+    dark: (
+        primary: #ffffff,
+        primary-contrast: #141d3a,
+        secondary: #ffffff,
+        secondary-contrast: #141d3a, 
+        background: #141d3a,
+        surface: #ffffff,
+        text: #2f2f2f,
+        //text-muted: #9da9b5,
+        border: #30363d,
+        link: #b6a0ff
+    )
+  ),
+  stroke: (
+    border: 1px,  // button border width
+    focus: 2px, // button focus outline width
+    active: 2px, // button active outline width
+),
+  spacing: (
+    "2xs": 0.125rem, xs: 0.25rem, sm: 0.5rem, md: 1rem, lg: 1.5rem, xl: 2rem, "2xl": 3rem
+  ),
+  radius: (
+    sm: 4px, md: 10px, lg: 16px, xl: 24px, pill: 999px
+  ),
+  shadow: (
+    sm: 0 1px 3px 0 rgb(0 0 0 / 0.08),
+    md: 0 8px 18px -4px rgb(0 0 0 / 0.14),
+    lg: 0 20px 48px -10px rgb(0 0 0 / 0.28)
+  ),
+  typography: (
+    /* family-sans: "Inter", "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif,
+    family-serif: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif,
+    family-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace,
+    size-root: 16px,
+    weight-regular: 400,
+    weight-medium: 500,
+    weight-bold: 800,
+    line-default: 1.6 */
+  )
+) !default;

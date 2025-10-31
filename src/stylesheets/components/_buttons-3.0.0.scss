@@ -1,0 +1,416 @@
+// BEM Button Component Styles (using .btn as BEM block)
+@use './../theme/theme';
+
+
+$font-label-small: 14px;
+$font-button-text: 16px;
+
+// ============================================================================
+// BEM ARCHITECTURE: Block = .btn, Elements = .btn__*, Modifiers = .btn--*
+// ============================================================================
+
+// Block: btn
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-200);
+  font-size: $font-button-text;
+  border-radius: var(--radius-rfull);
+  padding: var(--space-400) var(--space-800);
+  border: 1px solid transparent;
+  background: transparent;
+  color: currentColor;
+  line-height: var(--space-400);
+  cursor: pointer;
+  text-decoration: none;
+  font-weight: var(--fw-700);
+  
+  // Remove default button styles
+  appearance: none;
+  outline: none;
+  
+  // Element: button text
+  &__text {
+    display: inline-block;
+  }
+  
+  // Element: button icon
+  &__icon {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    transition: transform 0.2s ease-in-out;
+    
+    // Icon modifiers
+    &--arrow-right {
+      background-image: var(--icon-arrow-right);
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+      margin-left: var(--space-200);
+    }
+    
+    &--chevron-up {
+      background-image: var(--icon-chevron-up);
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+  }
+  
+  
+  // Modifier: primary variant
+  &--primary {
+    border-color: var(--color-btn-primary-border);
+    background: var(--color-btn-primary-bg);
+    color: var(--color-btn-primary-text);
+
+    
+    &:hover {
+      background-color: var(--color-btn-primary-bg-hover);
+      border-color: var(--color-btn-primary-border-hover);
+      color: var(--color-btn-primary-text-hover);
+    }
+    
+    &:focus,
+    &:focus-visible {
+      background-color: var(--color-btn-primary-bg-focus);
+      border-color: var(--color-btn-primary-border-focus);
+      color: var(--color-btn-primary-text-focus);
+      outline: var(--stroke-focus) solid #0075C3;
+      outline-offset: 3px;
+    }
+    
+    &:active {
+      background-color: var(--color-btn-primary-bg-active);
+      border-color: var(--color-btn-primary-border-active);
+      color: var(--color-btn-primary-text-active);
+      outline: var(--stroke-active) solid #0075C3;
+      outline-offset: 3px;
+    } 
+    // Base disabled state for <button> tags
+    &:disabled,
+    // Base disabled state for aria-disabled (for <a> tags)
+    &[aria-disabled="true"] {
+      background-color: var(--color-btn-primary-bg-disabled);
+      border-color: var(--color-btn-primary-border-disabled);
+      color: var(--color-btn-primary-text-disabled);
+      cursor: not-allowed;  
+      pointer-events: none;
+      
+      &:hover,
+      &:focus,
+      &:active {
+        background-color: var(--color-btn-primary-bg-disabled);
+        border-color: var(--color-btn-primary-border-disabled);
+        color: var(--color-btn-primary-text-disabled);
+        outline: none;
+      }
+    }
+  }
+  
+  // Modifier: secondary variant  
+  &--secondary {
+    border-color: var(--color-btn-secondary-border);
+    background: var(--color-btn-secondary-bg);
+    color: var(--color-btn-secondary-text);
+    
+    &:hover {
+      background-color: var(--color-btn-secondary-bg-hover);
+      border-color: var(--color-btn-secondary-border-hover);
+      color: var(--color-btn-secondary-text-hover);
+    }
+    
+    &:focus,
+    &:focus-visible {
+      background-color: var(--color-btn-secondary-bg-focus);
+      border-color: var(--color-btn-secondary-border-focus);
+      color: var(--color-btn-secondary-text-focus);
+      outline: var(--stroke-focus) solid #0075C3;
+      outline-offset: 3px;
+    }
+    
+    &:active {
+      background-color: var(--color-btn-secondary-bg-active);
+      border-color: var(--color-btn-secondary-border-active);
+      color: var(--color-btn-secondary-text-active);
+      outline: var(--stroke-active) solid #0075C3;
+      outline-offset: 3px;
+    }
+     // Base disabled state for <button> tags
+  &:disabled,
+  // Base disabled state for aria-disabled (for <a> tags)
+  &[aria-disabled="true"] {
+    background-color: var(--color-btn-secondary-bg-disabled);
+    border-color: var(--color-btn-secondary-border-disabled);
+    color: var(--color-btn-secondary-text-disabled);
+    cursor: not-allowed;  
+    pointer-events: none;
+    
+    &:hover,
+    &:focus,
+    &:active {
+      background-color: var(--color-btn-secondary-bg-disabled);
+      border-color: var(--color-btn-secondary-border-disabled);
+      color: var(--color-btn-secondary-text-disabled);
+      outline: none;
+    }
+  }
+  }
+  
+  // Modifier: button text-link variant
+  &--text-link {
+    padding: 0;
+    border: none;
+    background: transparent;
+    border-radius: 0;
+    font-size: $font-button-text;
+    gap: var(--space-100);
+    padding: var(--space-100);
+    
+    // Animate arrow icon on hover
+    &:hover,
+    &:active {
+      .btn__icon--arrow-right {
+        transform: translateX(8px);
+      }
+    }
+    
+    // Primary theme for text-link
+    &.btn--text-link--primary {
+      color: var(--color-btn-text-link-primary);
+      background: transparent;
+      border: none;
+      padding-right: var(--space-300);
+      &:hover {
+        color: var(--color-btn-text-link-primary-hover);
+        background: transparent;
+        border: none;
+        text-decoration: underline;
+      }
+      
+      &:focus,
+      &:focus-visible {
+        color: var(--color-btn-text-link-primary-focus);
+        background: transparent;
+        border: none;
+        outline: var(--stroke-focus) solid #0075C3;
+        outline-offset: 3px;
+        border-radius: var(--radius-rfull);
+        text-decoration: underline;
+      }
+      
+      &:active {
+        color: var(--color-btn-text-link-primary-active);
+        background: transparent;
+        border: none;
+        outline: var(--stroke-active) solid #0075C3;
+        outline-offset: 3px;
+        border-radius: var(--radius-rfull);
+        text-decoration: underline;
+      }
+    }
+    
+    // Secondary theme for text-link
+    &.btn--text-link--secondary {
+      color: var(--color-text-link-secondary);
+      background: transparent;
+      border: none;
+      padding-right: var(--space-300);
+      &:hover {
+        color: var(--color-text-link-secondary-hover);
+        background: transparent;
+        border: none;
+        text-decoration: underline;
+      }
+      
+      &:focus,
+      &:focus-visible {
+        color: var(--color-text-link-secondary-focus);
+        background: transparent;
+        border: none;
+        outline: var(--stroke-focus) solid #0075C3;
+        outline-offset: 3px;
+        border-radius: var(--radius-rfull);
+        text-decoration: underline;
+      }
+      
+      &:active {
+        color: var(--color-text-link-secondary-active);
+        background: transparent;
+        border: none;
+        outline: var(--stroke-active) solid #0075C3;
+        outline-offset: 3px;
+        border-radius: var(--radius-rfull);
+        text-decoration: underline;
+      }
+     
+    }
+  }
+  
+  // Modifier: back-to-top variant
+  &--back-to-top {
+    padding: var(--space-400);
+    background: var(--color-btn-back-to-top-bg);
+    border: 1px solid var(--color-btn-back-to-top-border);
+    color: var(--color-text-primary);
+    font-size: $font-button-text;
+    border-radius: var(--radius-r200);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    
+    .btn__icon {
+      order: -1; // Put icon before text
+      margin-right: var(--space-100);
+    }
+    
+    &:hover {
+      background: var(--color-btn-back-to-top-bg-hover);
+      color: var(--color-btn-back-to-top-text-hover);
+      border-color: var(--color-btn-back-to-top-border-hover);
+      
+      // Change chevron icon to white on hover (light scheme)
+      .btn__icon--chevron-up,
+      .bg-icon--chevron-up {
+        background-image: url("/svgs/chevron-up--white.svg");
+      }
+    }
+    &:focus,
+    &:focus-visible {
+      background: var(--color-btn-back-to-top-bg-focus);
+      color: var(--color-btn-back-to-top-text-focus);
+      border-color: var(--color-btn-back-to-top-border-focus);
+      outline: var(--stroke-focus) solid #0075C3;
+      outline-offset: 3px;
+
+      // Change chevron icon to white on hover (light scheme)
+      .btn__icon--chevron-up,
+      .bg-icon--chevron-up {
+        background-image: url("/svgs/chevron-up--dark.svg");
+      }
+    }
+
+    &:active{
+      background: var(--color-btn-back-to-top-bg-active);
+      color: var(--color-btn-back-to-top-text-active);
+      border-color: var(--color-btn-back-to-top-border-active);
+      outline: var(--stroke-active) solid #0075C3;
+      outline-offset: 3px;
+      // Change chevron icon to white on white (light scheme)
+      .btn__icon--chevron-up,
+      .bg-icon--chevron-up {
+        background-image: url("/svgs/chevron-up--white.svg");
+      }
+    }
+
+    &:focus,
+    &:focus-visible {
+      outline: var(--stroke-focus) solid #0075C3;
+      outline-offset: 3px;
+    }
+
+    // Dark scheme hover state
+    [data-scheme="dark"] &:hover {
+      // Change chevron icon to dark on hover (dark scheme)
+      .btn__icon--chevron-up,
+      .bg-icon--chevron-up {
+        background-image: url("/svgs/chevron-up--dark.svg");
+      }
+    }
+    
+    // Dark scheme focus state
+    [data-scheme="dark"] &:focus,
+    [data-scheme="dark"] &:focus-visible {
+      // Change chevron icon to dark on focus (dark scheme)
+      .btn__icon--chevron-up,
+      .bg-icon--chevron-up {
+        background-image: url("/svgs/chevron-up--white.svg");
+      }
+    }
+
+    // Dark scheme focus state
+    [data-scheme="dark"] &:active{
+      // Change chevron icon to dark on focus (dark scheme)
+      .btn__icon--chevron-up,
+      .bg-icon--chevron-up {
+        background-image: url("/svgs/chevron-up--dark.svg");
+      }
+    }
+  }
+  
+  
+  // Modifier: small size
+  &--small {
+    padding: var(--space-200) var(--space-400);
+    font-size: $font-label-small;
+    
+    &.btn--text-link {
+      padding: 0; // Text links don't have padding even when small
+    }
+  }
+}
+
+// Legacy icon classes map to BEM elements
+.bg-icon {
+  @extend .btn__icon;
+  
+  &--arrow-right {
+    @extend .btn__icon--arrow-right;
+  }
+  
+  &--chevron-up {
+    @extend .btn__icon--chevron-up;
+  }
+}
+
+// simple text-link classes map to BEM modifiers  
+.text-link {
+  font-size: $font-button-text;
+  font-weight: var(--fw-700);
+  &--primary {
+    color: var(--color-btn-text-link-primary);
+      &:hover {
+        color: var(--color-btn-text-link-primary);
+        text-decoration: underline;
+      }
+      &:focus,
+      &:focus-visible {
+        border-radius: var(--radius-r100);
+        color: var(--color-btn-text-link-primary);
+        outline: var(--stroke-focus) solid #0075C3;
+        outline-offset: 3px;
+        text-decoration: underline;
+      } 
+      &:active {
+        outline: var(--stroke-focus) solid #0075C3;
+        outline-offset: 3px;
+        border-radius: var(--radius-r100);
+      } 
+
+    }
+  
+  &--secondary {
+    color: var(--color-btn-text-link-secondary);
+    &:hover {
+      text-decoration: underline;
+      color: var(--color-btn-text-link-secondary);
+    }
+
+    &:focus,
+    &:focus-visible {
+      color: var(--color-btn-text-link-secondary);
+      border-radius: var(--radius-r100);
+      outline: var(--stroke-focus) solid #0075C3;
+      outline-offset: 3px;
+      text-decoration: underline;
+    }
+
+    &:active {
+        border-radius: var(--radius-r100);
+        outline: var(--stroke-focus) solid #0075C3;
+        outline-offset: 3px;
+      } 
+  }
+}

@@ -1,0 +1,205 @@
+// Button Variables - Core 3.0.0
+// This file contains all button-related color variables for both light and dark modes
+
+@use "sass:map";
+
+// Function to generate button color variables
+@function get-button-colors($foundation, $welcome, $white) {
+  @return (
+    // Primary Button
+    btn-primary-bg: $welcome,
+    btn-primary-text: $white,
+    btn-primary-border: $welcome,
+
+    // Primary Button States - hover
+    btn-primary-bg-hover: $foundation,
+    btn-primary-text-hover: $white,
+    btn-primary-border-hover: $foundation,
+    
+    // Primary Button States - focus
+    btn-primary-bg-focus: $welcome,
+    btn-primary-text-focus: $white,
+    btn-primary-border-focus: $welcome,
+    btn-primary-outline-focus: $welcome,
+    
+    // Primary Button States - active
+    btn-primary-bg-active: $foundation,
+    btn-primary-text-active: $white,
+    btn-primary-border-active: $welcome,
+    btn-primary-outline-active: $welcome,
+    
+    // Primary Button States - disabled
+    btn-primary-bg-disabled: #aaaaaa,
+    btn-primary-text-disabled: $white,
+    btn-primary-border-disabled: #aaaaaa,
+
+    // Secondary Button
+    btn-secondary-bg: $white,
+    btn-secondary-text: $foundation,
+    btn-secondary-border: $foundation,
+    
+    // Secondary Button States - hover
+    btn-secondary-bg-hover: $foundation,
+    btn-secondary-border-hover: $foundation,
+    btn-secondary-text-hover: $white,
+    
+    // Secondary Button States - focus
+    btn-secondary-bg-focus: $white,
+    btn-secondary-text-focus: $foundation,
+    btn-secondary-border-focus: $foundation,
+    btn-secondary-focus-outline: $welcome,
+    
+    // Secondary Button States - active
+    btn-secondary-bg-active: $foundation,
+    btn-secondary-text-active: $white,
+    btn-secondary-border-active: $welcome,
+    btn-secondary-active-outline: $welcome,
+    
+    // Secondary Button States - disabled
+    btn-secondary-bg-disabled: $white,
+    btn-secondary-text-disabled: #aaaaaa,
+    btn-secondary-border-disabled: #aaaaaa,
+
+    // Button Text Links (Primary)
+    btn-link-primary: $foundation,
+    btn-link-primary-hover: $foundation,
+    btn-link-primary-focus: $welcome,
+    btn-link-primary-active: $welcome,
+
+    // Button Text Links (Secondary)
+    btn-link-secondary: $foundation,
+    btn-link-secondary-hover: $foundation,
+    btn-link-secondary-focus: $welcome,
+    btn-link-secondary-active: $welcome,
+
+    // Text Links (Secondary)
+    text-link-secondary: $foundation,
+    text-link-secondary-hover: $foundation,
+    text-link-secondary-focus: $welcome,
+    text-link-secondary-active: $welcome,
+
+    // Back to Top Button
+    btn-back-to-top-bg: $white,
+    btn-back-to-top-text: $foundation,
+    btn-back-to-top-border: $foundation,
+    
+    // Back to Top Button States - hover
+    btn-back-to-top-bg-hover: $foundation,
+    btn-back-to-top-text-hover: $white,
+    btn-back-to-top-border-hover: $foundation,
+    
+    // Back to Top Button States - focus
+    btn-back-to-top-bg-focus: $white,
+    btn-back-to-top-text-focus: $foundation,
+    btn-back-to-top-border-focus: $foundation,
+    btn-back-to-top-outline-focus: $welcome,
+    
+    // Back to Top Button States - active
+    btn-back-to-top-bg-active: $foundation,
+    btn-back-to-top-text-active: $white,
+    btn-back-to-top-border-active: $foundation,
+    btn-back-to-top-outline-active: $welcome,
+  );
+}
+
+// Function to generate button colors for dark mode
+@function get-button-colors-dark($foundation, $welcome, $white) {
+  @return (
+    // Primary Button (Dark Mode)
+    btn-primary-bg: $welcome,
+    btn-primary-text: $white,
+    
+    // Primary Button States (Dark Mode) - hover
+    btn-primary-bg-hover: $white,
+    btn-primary-text-hover: $foundation,
+    btn-primary-border-hover: $white,
+    
+    // Primary Button States (Dark Mode) - focus
+    btn-primary-bg-focus: $welcome,
+    btn-primary-text-focus: $white,
+    btn-primary-border-focus: $welcome,
+    btn-primary-outline-focus: $welcome,
+    
+    // Primary Button States (Dark Mode) - active
+    btn-primary-bg-active: $white,
+    btn-primary-text-active: $foundation,
+    btn-primary-border-active: $welcome,
+    btn-primary-outline-active: $foundation,
+
+    // Secondary Button (Dark Mode)
+    btn-secondary-bg: $foundation,
+    btn-secondary-text: $white,
+    btn-secondary-border: $white,
+    
+    // Secondary Button States (Dark Mode) - hover
+    btn-secondary-bg-hover: $white,
+    btn-secondary-border-hover: $white,
+    btn-secondary-text-hover: $foundation,
+    
+    // Secondary Button States (Dark Mode) - focus
+    btn-secondary-bg-focus: $foundation,
+    btn-secondary-text-focus: $white,
+    btn-secondary-border-focus: $white,
+    btn-secondary-outline-focus: $welcome,
+    
+    // Secondary Button States (Dark Mode) - active
+    btn-secondary-bg-active: $white,
+    btn-secondary-text-active: $foundation,
+    btn-secondary-border-active: $welcome,
+    btn-secondary-outline-active: $foundation,
+
+    // Secondary Button States - disabled
+    btn-secondary-bg-disabled: $foundation,
+    btn-secondary-text-disabled: #aaaaaa,
+    btn-secondary-border-disabled: #aaaaaa,
+
+    // Button Text Links (Primary - Dark Mode)
+    btn-text-link-primary: $white,
+    btn-text-link-primary-hover: $white,
+    btn-text-link-primary-focus: $white,
+    btn-text-link-primary-active: $white,
+    btn-text-link-primary-disabled: #aaaaaa,
+
+    // Button Text Links (Secondary - Dark Mode)
+    btn-text-link-secondary: $white,
+    btn-text-link-secondary-hover: $white,
+    btn-text-link-secondary-focus: $welcome,
+    btn-text-link-secondary-active: $welcome,
+
+    // Text Links (Primary - Dark Mode)
+    text-link-primary: $white,
+    text-link-primary-hover: $white,
+    text-link-primary-focus: $welcome,
+    text-link-primary-active: $welcome,
+    text-link-primary-disabled: #aaaaaa,
+
+    // Text Links (Secondary - Dark Mode)
+    text-link-secondary: $white,
+    text-link-secondary-hover: $white,
+    text-link-secondary-focus: $white,
+    text-link-secondary-active: $white,
+    text-link-secondary-disabled: #aaaaaa,
+
+    // Back to Top Button (Dark Mode)
+    btn-back-to-top-bg: $foundation,
+    btn-back-to-top-text: $white,
+    btn-back-to-top-border: $white,
+    
+    // Back to Top Button States (Dark Mode) - hover
+    btn-back-to-top-bg-hover: $white,
+    btn-back-to-top-text-hover: $foundation,
+    btn-back-to-top-border-hover: $white,
+    
+    // Back to Top Button States (Dark Mode) - focus
+    btn-back-to-top-bg-focus: $foundation,
+    btn-back-to-top-text-focus: $white,
+    btn-back-to-top-border-focus: $white,
+    btn-back-to-top-outline-focus: $welcome,
+    
+    // Back to Top Button States (Dark Mode) - active
+    btn-back-to-top-bg-active: $white,
+    btn-back-to-top-text-active: $foundation,
+    btn-back-to-top-border-active: $white,
+    btn-back-to-top-outline-active: $welcome,
+  );
+}

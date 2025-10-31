@@ -1,0 +1,47 @@
+$grid-columns: 12;
+$grid-breakpoints: (
+  xs: 0,
+  sm: 480px,
+  md: 768px,
+  lg: 1024px,
+  xl: 1440px,
+  xxl: 1920px,
+);
+
+$container-max-widths: (
+  xs: 340px,
+  sm: 436px,
+  md: 688px,
+  lg: 944px,
+  xl: 1360px,
+);
+
+$spacer: 10px;
+$spacers: (
+  0: 0,
+  1: $spacer * 1,
+  // 10px
+  2: $spacer * 2,
+  // 20px
+  3: $spacer * 3,
+  // 30px
+  4: $spacer * 4,
+  // 40px
+  5: $spacer * 5,
+  // 50px
+);
+
+$grid-gutter-width: 40px;
+$gutters: (
+  0: 0,
+  1: $spacer * 1,
+  // 10px
+  2: $spacer * 2,
+  // 20px
+  3: $spacer * 3,
+  // 30px
+  4: $spacer * 4,
+  // 40px
+  5: $spacer * 5,
+  // 50px
+);

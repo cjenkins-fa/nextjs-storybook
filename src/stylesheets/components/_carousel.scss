@@ -1,0 +1,36 @@
+.carousel {
+  padding: 0 30px;
+  &__container {
+    overflow: hidden;
+    height: 200px;
+  }
+  &__list {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+  }
+  &__list.unwrap {
+    flex-wrap: nowrap;
+  }
+  &__item {
+    flex: 1 0 250px;
+    max-width: 300px;
+    height: 200px;
+    background-color: #ccc;
+    text-align: center;
+    line-height: 100px;
+    border: 1px solid #fff;
+  }
+}
+.carousel__button--prev,
+.carousel__button--next {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+}
+.carousel__button--prev {
+  left: 0;
+}
+.carousel__button--next {
+  right: 0;
+}

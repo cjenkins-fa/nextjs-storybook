@@ -1,0 +1,36 @@
+/* Base icon: monochrome, tints via currentColor */
+.i {
+  display: inline-block;
+  inline-size: var(--icon-size, var(--icon-size-md));
+  block-size: var(--icon-size, var(--icon-size-md));
+  background-color: currentColor;
+
+  /* Safari + standard */
+  -webkit-mask-image: var(--icon-src);
+  mask-image: var(--icon-src);
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  mask-position: center;
+  -webkit-mask-size: contain;
+  mask-size: contain;
+
+  /* Align with text nicely */
+  vertical-align: -0.125em;
+}
+
+/* Size shortcuts (override --icon-size) */
+.i--xs { --icon-size: var(--icon-size-xs); }
+.i--sm { --icon-size: var(--icon-size-sm); }
+.i--md { --icon-size: var(--icon-size-md); }
+.i--lg { --icon-size: var(--icon-size-lg); }
+.i--xl { --icon-size: var(--icon-size-xl); }
+
+/* Tone helpers */
+.i--muted      { color: var(--color-text-muted); }
+.i--on-surface { color: var(--color-text); }
+.i--on-prominent { color: var(--color-surface-prominent-contrast, #fff); }
+.i--success    { color: var(--color-success); }
+.i--warning    { color: var(--color-warning); }
+.i--danger     { color: var(--color-danger); }
+.i--link       { color: var(--color-link); }

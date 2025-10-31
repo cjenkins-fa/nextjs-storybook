@@ -1,0 +1,32 @@
+// Base modules
+@forward './base/colors';
+@forward './base/typography';
+@forward './base/svg-icons';
+@forward './base/utilities';
+@forward './base/mixins';
+
+// Layout modules
+@forward './layout/grid';
+@forward './layout/bootstrap-grid';
+@forward './layout/header';
+@forward './layout/footer';
+
+// Component modules
+@forward './components/band';
+@forward './components/form';
+@forward './components/buttons';
+@forward './components/tiles';
+@forward './components/cards';
+@forward './components/lists';
+@forward './components/sidenav';
+@forward './components/aside';
+@forward './components/videos';
+@forward './components/quote';
+@forward './components/modal';
+
+// Highlight.js for code sample blocks
+@use 'highlight.js/styles/atom-one-dark.css';
+
+/* 
+  End Core 2.0
+*/

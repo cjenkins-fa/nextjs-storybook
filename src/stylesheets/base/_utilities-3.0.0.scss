@@ -1,0 +1,72 @@
+// Core 3.0.0 Spacing Utilities
+
+// Map of token name -> pixel value
+$fawc-spacing-scale: (
+	0: 0,
+	2: 2,
+	4: 4,
+	6: 6,
+	8: 8,
+	12: 12,
+	16: 16,
+	24: 24,
+	32: 32,
+	48: 48,
+	64: 64,
+	96: 96
+);
+
+
+// Expose as CSS custom properties for runtime usage (spacing theming, JS access)
+:root {
+	@each $token, $val in $fawc-spacing-scale {
+		--space-#{$token}: #{$val}px;
+	}
+}
+
+// Utility class generator (padding + margin)
+@each $token, $val in $fawc-spacing-scale {
+	.p-#{$token} { padding: #{$val}px !important; }
+	.pt-#{$token} { padding-top: #{$val}px !important; }
+	.pb-#{$token} { padding-bottom: #{$val}px !important; }
+	.pl-#{$token} { padding-left: #{$val}px !important; }
+	.pr-#{$token} { padding-right: #{$val}px !important; }
+	.px-#{$token} { padding-left: #{$val}px !important; padding-right: #{$val}px !important; }
+	.py-#{$token} { padding-top: #{$val}px !important; padding-bottom: #{$val}px !important; }
+
+	.m-#{$token} { margin: #{$val}px !important; }
+	.mt-#{$token} { margin-top: #{$val}px !important; }
+	.mb-#{$token} { margin-bottom: #{$val}px !important; }
+	.ml-#{$token} { margin-left: #{$val}px !important; }
+	.mr-#{$token} { margin-right: #{$val}px !important; }
+	.mx-#{$token} { margin-left: #{$val}px !important; margin-right: #{$val}px !important; }
+	.my-#{$token} { margin-top: #{$val}px !important; margin-bottom: #{$val}px !important; }
+	
+	// Gap utilities for flexbox and grid layouts
+	.gap-#{$token} { gap: #{$val}px !important; }
+	.gap-x-#{$token} { column-gap: #{$val}px !important; }
+	.gap-y-#{$token} { row-gap: #{$val}px !important; }
+}
+
+// Negative margin utilities (only for a safe subset to reduce layout risk)
+$fawc-negative-margin-subset: (2, 4, 6, 8, 12, 16, 24, 32, 48, 64, 96);
+@each $neg in $fawc-negative-margin-subset {
+	$val: map-get($fawc-spacing-scale, $neg);
+	.-mt-#{$neg} { margin-top: -#{$val}px !important; }
+	.-mb-#{$neg} { margin-bottom: -#{$val}px !important; }
+	.-ml-#{$neg} { margin-left: -#{$val}px !important; }
+	.-mr-#{$neg} { margin-right: -#{$val}px !important; }
+	.-mx-#{$neg} { margin-left: -#{$val}px !important; margin-right: -#{$val}px !important; }
+	.-my-#{$neg} { margin-top: -#{$val}px !important; margin-bottom: -#{$val}px !important; }
+}
+
+// Helper: clamp utility for max-width / spacing lock
+// Usage: <div class="clamp-container clamp-400">...</div>
+@each $token, $val in $fawc-spacing-scale {
+	.clamp-#{$token} { max-width: #{$val}px; }
+}
+
+// Documentation note:
+// If you need an in-between value not in this curated scale, propose it during design review.
+// Keeping the list intentional preserves consistency and reduces bundle size.
+

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>FAWC Spacing Tokens Demo</title>
+   <link rel="stylesheet" href="../_assets/demo-3.0.0.scss" />
+  <style>
+    body { font-family: system-ui, Arial, sans-serif; background:#fafafa; }
+    .demo-block {
+      background: #ffffff;
+      border: 1px solid #e0e0e0;
+      border-radius: 6px;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+    }
+    .label {
+      display:inline-block;
+      font-size:12px;
+      font-weight:600;
+      letter-spacing:.5px;
+      text-transform:uppercase;
+      color:#555;
+      background:#f1f1f1;
+      padding:2px 6px;
+      border-radius:3px;
+      margin-bottom:8px;
+    }
+    .outline {
+      outline:1px dashed #c2b8ff;
+      background:rgba(113,44,249,0.05);
+    }
+    /* Example of using custom properties directly */
+    .custom-gap-example {
+      padding: var(--space-24) var(--space-40);
+      margin-top: var(--space-64);
+      border: 2px solid #7646ff;
+      background: #f9f7ff;
+    }
+    .grid-example {
+      display:grid;
+      gap: var(--space-32);
+      grid-template-columns: repeat(auto-fill, minmax(180px,1fr));
+    }
+  </style>
+</head>
+<body class="p-40">
+
+  <h1 class="mb-32">Spacing Token Demonstration</h1>
+
+  <!-- Basic padding / margin -->
+  <section class="demo-block p-32 mb-40">
+    <span class="label">Basic</span>
+    <div class="outline p-32 mb-16">.p-32 (padding 32px)</div>
+    <div class="outline px-48 py-12 mb-16">.px-48 .py-12 (horizontal 48px, vertical 12px)</div>
+    <div class="outline m-0 px-64">.px-64 (margin 0, horizontal 64px)</div>
+    <p class="mt-96 mb-0">This paragraph has <code>.mt-96 .mb-0</code>.</p>
+  </section>
+
+  <!-- Side-specific and axis spacing -->
+  <section class="demo-block p-24 mb-40">
+    <span class="label">Axis / Side Specific</span>
+    <div class="outline pt-40 pb-16 px-16 mb-24">
+      .pt-40 .pb-16 .px-16
+    </div>
+    <div class="outline mt-56 mb-32 p-16">
+      .mt-56 .mb-32
+    </div>
+  </section>
+
+  <!-- Large / macro spacing tokens -->
+  <section class="demo-block p-32 mb-64">
+    <span class="label">Macro Spacing</span>
+    <div class="outline p-32 mb-32">.p-32</div>
+    <div class="outline p-48 mb-32">.p-48</div>
+    <div class="outline p-64 mb-32">.p-64</div>
+    <div class="outline p-96 mb-40">.p-96</div>
+  </section>
+
+  <!-- Negative margins subset -->
+  <section class="demo-block p-32 mb-64">
+    <span class="label">Negative Margins (Subset)</span>
+    <div class="outline p-32 -mb-48">Normal block - block 1 negative 48px bottom</div>
+    <div class="outline p-32 -mt-32">
+      Block 2 .-mt-32 (pull up 32px, negative 32px top margin)
+    </div>
+    <div class="outline p-24 -mx-32 mt-32">
+      .-mx-32 (wider visual edge bleed)
+    </div>
+  </section>
+
+  <!-- Clamp width helpers -->
+  <section class="demo-block p-32 mb-64">
+    <span class="label">Clamp Width Helpers</span>
+    <div class="clamp-400 outline p-16 mb-24">
+      .clamp-400 → max-width: 400px<br/>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+    </div>
+    <div class="clamp-800 outline p-24">
+      .clamp-800 → max-width: 800px<br/>
+      Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+    </div>
+  </section>
+</body>
+</html>
+
+

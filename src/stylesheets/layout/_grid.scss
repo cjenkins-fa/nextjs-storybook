@@ -1,0 +1,457 @@
+@use '../base/variables';
+@use '../base/mixins';
+
+$cols: 12;
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: variables.$gap-sm;
+  flex-direction: column;
+  box-sizing: content-box;
+  &__row {
+    display: flex;
+    width: calc(100% - 30px);
+    gap: variables.$gap-sm;
+    margin-left: auto;
+    margin-right: auto;
+    flex-flow: row wrap;
+  }
+
+  &__col {
+    display: flex;
+    flex-direction: column;
+  }
+
+  @for $i from 1 through $cols {
+    &__col--xs-#{$i} {
+      flex: 1 1 calc((100% / ($cols / $i)));
+      box-sizing: border-box;
+      width: calc((100% / ($cols / $i)));
+    }
+  }
+
+  // offsets
+  &__row--offset-center {
+    justify-content: center;
+  }
+
+  &__row--offset-left,
+  &__row--offset-right {
+    //flex-start (align left) is default
+    gap: variables.$gap-sm;
+    display: flex;
+  }
+
+  &__row--offset-right {
+    justify-content: flex-end;
+    align-items: flex-end;
+  }
+
+  &__row--nested,
+  &__row--nested-row {
+    display: flex;
+  }
+
+  &__row--nested-cols {
+    display: flex;
+    flex-direction: column;
+    .grid__col {
+      flex: 1;
+    }
+  }
+
+  &__row--stacked-form {
+    display: flex;
+    gap: variables.$gap-sm;
+    flex-wrap: wrap;
+  }
+
+  &__row--wrap {
+    flex-wrap: wrap;
+  }
+
+  &__row--header {
+    justify-content: space-between;
+    height: 95px;
+  }
+
+  .reverse-row {
+    flex-direction: row-reverse;
+  }
+
+  .reverse-col {
+    flex-direction: col-reverse;
+  }
+
+  .vertical--bottom-align {
+    justify-content: flex-end;
+  }
+  .vertical--center-align {
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+@include mixins.respond-to(xsmall) {
+  .grid {
+    gap: variables.$gap-sm;
+    &__row,
+    &__row--nested {
+      width: variables.$row-width-xs;
+      margin-left: auto;
+      margin-right: auto;
+      gap: variables.$gap-sm;
+      display: flex;
+      flex-flow: row wrap;
+    }
+    @for $i from 1 through $cols {
+      &__col--xs-#{$i} {
+        display: flex;
+        flex: 1 1 calc((100% / ($cols / $i)) - 20px);
+      }
+    }
+    // for multiple fields in a
+    &__row--nested-row {
+      @for $i from 1 through $cols {
+        .grid__col--xs-#{$i} {
+          flex: 1 1 calc((100% / ($cols / $i)) - 10px);
+          //width: calc((100% / ($cols / $i)) - 10px);
+          //gap: variables.$gap-sm;
+        }
+      }
+    }
+    &__row--offset-right {
+      justify-content: flex-end;
+      align-items: flex-end;
+    }
+
+    &__row--offset-center {
+      justify-content: center;
+      //align-items: center;
+    }
+    &__row--offset-left {
+      justify-content: flex-start;
+      align-items: flex-start;
+    }
+    &__row--offset-right,
+    &__row--offset-left,
+    &__row--offset-center {
+      .grid__col {
+        flex-grow: 0;
+        flex-shrink: 1;
+      }
+    }
+
+    // for forms with multiple form fields and stacked
+    &__row--stacked-form {
+      @for $i from 1 through $cols {
+        .grid__col--xs-#{$i} {
+          flex: 0 1 calc((100% / ($cols / $i)) - 10px);
+          width: calc((100% / ($cols / $i)) - 10px);
+        }
+      }
+    }
+  }
+}
+
+@include mixins.respond-to(small) {
+  .grid {
+    &__row,
+    &__row--nested,
+    &__row--header {
+      gap: variables.$gap-30;
+      flex-flow: row wrap;
+      width: variables.$row-width-sm;
+    }
+
+    &__row,
+    &__row--nested {
+      justify-content: flex-start;
+    }
+
+    &__row--header {
+      justify-content: space-between;
+    }
+
+    @for $i from 1 through $cols {
+      &__col--sm-#{$i} {
+        display: flex;
+        flex: 1 1 calc((100% / ($cols / $i)) - 20px);
+        width: calc((100% / ($cols / $i)) - 20px);
+      }
+    }
+
+    &__row--nested-row {
+      @for $i from 1 through $cols {
+        .grid__col--sm-#{$i} {
+          flex: 1 1 calc(100% / ($cols / $i) - 20px);
+          width: calc(100% / ($cols / $i) - 20px);
+          gap: variables.$gap-sm;
+        }
+      }
+    }
+
+    &__row--offset-right {
+      justify-content: flex-end;
+      align-items: flex-end;
+    }
+
+    &__row--offset-center {
+      justify-content: center;
+      //align-items: center;
+    }
+    &__row--offset-left {
+      justify-content: flex-start;
+      align-items: flex-start;
+    }
+    &__row--offset-right,
+    &__row--offset-left,
+    &__row--offset-center {
+      .grid__col {
+        flex-grow: 0;
+        flex-shrink: 1;
+      }
+
+      &__row--nowrap {
+        flex-wrap: nowrap;
+      }
+      &__row--wrap {
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+      }
+    }
+
+    &__row--nowrap {
+      flex-wrap: nowrap;
+    }
+    &__row--wrap {
+      flex-wrap: wrap;
+    }
+  }
+}
+
+@include mixins.respond-to(med) {
+  .grid {
+    &__row,
+    &__row--nested {
+      flex-flow: row nowrap;
+      width: variables.$row-width-md;
+    }
+    @for $i from 1 through $cols {
+      &__col--md-#{$i} {
+        display: flex;
+        flex: 1 1 calc((100% / ($cols / $i)) - 30px);
+        width: calc((100% / ($cols / $i)) - 30px);
+      }
+    }
+
+    &__row--nested-row {
+      @for $i from 1 through $cols {
+        .grid__col--md-#{$i} {
+          flex: 1 1 calc(100% / ($cols / $i) - 30px);
+          width: calc(100% / ($cols / $i) - 30px);
+          gap: variables.$gap-sm;
+        }
+      }
+    }
+    &__row--offset-right {
+      justify-content: flex-end;
+      align-items: flex-end;
+    }
+
+    &__row--offset-center {
+      justify-content: center;
+      //align-items: center;
+    }
+    &__row--offset-left {
+      justify-content: flex-start;
+      align-items: flex-start;
+    }
+    &__row--offset-right,
+    &__row--offset-left,
+    &__row--offset-center {
+      .grid__col--md-1 {
+        flex-basis: 41.16666666666667px;
+      }
+      .grid__col--md-2 {
+        flex-basis: 122.3333333333333px;
+      }
+      .grid__col--md-3 {
+        flex-basis: 203.5px;
+      }
+      .grid__col--md-4 {
+        flex-basis: 284.6666666666667px;
+      }
+      .grid__col--md-5 {
+        flex-basis: 365.8333333333333px;
+      }
+      .grid__col--md-6 {
+        flex-basis: 447px;
+      }
+      .grid__col--md-7 {
+        flex-basis: 528.1666666666667px;
+      }
+      .grid__col--md-8 {
+        flex-basis: 609.3333333333333px;
+      }
+      .grid__col--md-9 {
+        flex-basis: 690.5px;
+      }
+      .grid__col--md-10 {
+        flex-basis: 771.6666666666667px;
+      }
+      .grid__col--md-11 {
+        flex-basis: 852.8333333333333px;
+      }
+      .grid__col--md-12 {
+        flex-basis: 934px;
+      }
+    }
+
+    &__row--wrap {
+      flex-wrap: wrap;
+    }
+  }
+}
+
+@include mixins.respond-to(large) {
+  .grid {
+    &__row,
+    &__row--nested {
+      flex-flow: row nowrap;
+      width: variables.$row-width-lg;
+      gap: variables.$gap-lg;
+    }
+    @for $i from 1 through $cols {
+      &__col--lg-#{$i} {
+        display: flex;
+        flex: 1 1 calc((100% / ($cols / $i)) - 40px);
+        width: calc((100% / ($cols / $i)) - 40px);
+      }
+    }
+
+    &__row--offset-right {
+      justify-content: flex-end;
+      align-items: flex-end;
+    }
+
+    &__row--offset-center {
+      justify-content: center;
+      //align-items: center;
+    }
+    &__row--offset-left {
+      justify-content: flex-start;
+      align-items: flex-start;
+    }
+    &__row--offset-right,
+    &__row--offset-left,
+    &__row--offset-center {
+      .grid__col--lg-1 {
+        flex-basis: 76.636px;
+      }
+      .grid__col--lg-2 {
+        flex-basis: 193.33333333px;
+      }
+      .grid__col--lg-3 {
+        flex-basis: 310px;
+      }
+      .grid__col--lg-4 {
+        flex-basis: 426.6666666666667px;
+      }
+      .grid__col--lg-5 {
+        flex-basis: 543px;
+      }
+      .grid__col--lg-6 {
+        flex-basis: 660px;
+      }
+      .grid__col--lg-7 {
+        flex-basis: 777px;
+      }
+      .grid__col--lg-8 {
+        flex-basis: 893.3333333333333px;
+      }
+      .grid__col--lg-9 {
+        flex-basis: 1010px;
+      }
+      .grid__col--lg-10 {
+        flex-basis: 1126.6666666666667px;
+      }
+      .grid__col--lg-11 {
+        flex-basis: 1243.6373px;
+      }
+      .grid__col--lg-12 {
+        flex-basis: 1360px;
+      }
+    }
+
+    &__row--wrap {
+      flex-wrap: wrap;
+    }
+  }
+}
+
+@include mixins.respond-to(xlarge) {
+  .grid {
+    &__row,
+    &__row--nested {
+      flex-flow: row nowrap;
+      width: variables.$row-width-xlg;
+      gap: variables.$gap-lg;
+    }
+    @for $i from 1 through $cols {
+      &__col--xlg-#{$i} {
+        display: flex;
+        flex: 1 1 calc((100% / ($cols / $i)) - 40px);
+        width: calc((100% / ($cols / $i)) - 40px);
+      }
+    }
+
+    &__row--offset-right,
+    &__row--offset-left,
+    &__row--offset-center {
+      .grid__col--xlg-1 {
+        flex-basis: 76.636px;
+      }
+      .grid__col--xlg-2 {
+        flex-basis: 193.33333333px;
+      }
+      .grid__col--xlg-3 {
+        flex-basis: 310px;
+      }
+      .grid__col--xlg-4 {
+        flex-basis: 426.6666666666667px;
+      }
+      .grid__col--xlg-5 {
+        flex-basis: 543px;
+      }
+      .grid__col--xlg-6 {
+        flex-basis: 660px;
+      }
+      .grid__col--xlg-7 {
+        flex-basis: 777px;
+      }
+      .grid__col--xlg-8 {
+        flex-basis: 893.3333333333333px;
+      }
+      .grid__col--xlg-9 {
+        flex-basis: 1010px;
+      }
+      .grid__col--xlg-10 {
+        flex-basis: 1126.6666666666667px;
+      }
+      .grid__col--xlg-11 {
+        flex-basis: 1243.6373px;
+      }
+      .grid__col--xlg-12 {
+        flex-basis: 1360px;
+      }
+    }
+  }
+}
